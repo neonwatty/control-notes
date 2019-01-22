@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+	
+	<head>
+		<!-- always use https, not http --> 
+		<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js'></script>
+		<link rel="stylesheet" href="../CSS/home.css">
+		
+		<!-- need this for navigation menu --> 
+		<link rel="stylesheet" href="../CSS/navbar.css">
+		
+		<style>
+			.back-text-color { /* color of text on the back of each card */
+				color: #333;
+			}
+			
+		 </style>	
+		 
+		<!-- subscription -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../CSS/subscription.css">
+		 
+	</head>
+		 
+
+	<body>
+	
+		<!-- Navigation menu -->	
+		<br/><br/><br/>
+		<div>
+    		<ul>
+        		<li class="menu-item"><a href="../../index.html"><span class="menu-item">HOME</span></a></li>
+        		<li class="menu-item active"><a href="about.html"><span class="menu-item">ABOUT</span></a></li>
+   			</ul>
+		</div>
+		
+		
+		<br/><br/>
+		<p id="title">About</p>
+		<p style="padding: 0px 240px 0px 240px; text-align: justify;" id="sub-title">
+			
+		Jeremy and Reza co-wrote <a class="redlink" target="_blank" href="http://mlrefined.com">Machine Learning Refined</a> published by Cambridge University Press,
+		run a Midwest-based machine learning consulting firm <a class="redlink" target="_blank" href="http://dgsix.com">Degree Six</a>, and sporadically play professor at Northwestern University where they teach courses on machine learning, optimization, and dynamic programming / reinforcement at Northwestern University.  
+
+
+				
+		<br/><br/><br/><br/>
+	
+  		<form action="https://formspree.io/rzbrhn@gmail.com" method="POST">
+    		<input type="email" name="email" placeholder="subscribe for semi-regular updates" onfocus="this.placeholder=''" onblur="this.placeholder='email goes here' autocomplete="off">
+    		<button type="submit" value="Send">Subscribe &nbsp;<i class="fa fa-envelope-o"></i></button>
+ 		</form>	
+ 		
+		
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+		<script>
+			$(document).ready(function(){
+				$('.hover').hover(function(){
+					$(this).addClass('flip');
+					},function(){
+						$(this).removeClass('flip');
+					});
+				});
+		</script>
+		
+	
+	</body>
+</html>
