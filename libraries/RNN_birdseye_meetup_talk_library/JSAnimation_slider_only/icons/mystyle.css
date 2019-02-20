@@ -1,0 +1,37 @@
+.value {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  width: 300px; 
+  height: 100px;
+  line-height: 60px;
+  margin: 40px auto;
+  color: #2c3e50;
+}
+input[type="range"] {
+  display: block;
+  -webkit-appearance: none;
+  background-color: #d7dcdf;
+  width: 300px;
+  height: 4px;
+  border-radius: 5px;
+  margin: 0 auto;
+  outline: 0;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #2c3e50;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}​
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background-color:  #2c3e50;
+    border: 2px solid #1abc9c;
+  }
+  input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.2);
+  }
