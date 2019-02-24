@@ -30,6 +30,7 @@ a {
 a:hover,
 a:focus {
   color: #0085A1;
+  text-decoration: none !important;
 }
 a img:hover,
 a img:focus {

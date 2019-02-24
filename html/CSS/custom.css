@@ -30,12 +30,13 @@
 }
 
 .page-title { /* page title */
-  color: red !important;
-  font-family: 'Alegreya sans', sans-serif;
-  font-size: 32pt;
+  color: #333;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-weight:800;
+  font-size: 30pt;
   margin-right: 240px;
   margin-left: 240px;
-  margin-top: 120px;
+  margin-top: 60px;
   margin-bottom: 0px;
   text-align: center;
   line-height: 65px;
@@ -196,9 +197,9 @@ div.output_area {
 
 div.text_cell_render { /* markdown cell */
   color: #515151;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: 17px;
+  font-family: 'Alegreya sans', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
   margin-left: 0px;  /* previously 72  */
   margin-right: 78px; /* previously 150  */
   line-height: 1.5em;

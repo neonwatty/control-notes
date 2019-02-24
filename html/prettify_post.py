@@ -99,10 +99,11 @@ script_1 = '''
 </div>
 
 <br><br>
-
-	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''</mark>
+	<div style="padding: 0px;">'''+ page_title +'''</div>
+<svg width="80" height="15">
+  <rect width="80" height="15" style="fill:#0085A1; stroke-width:0; stroke:rgb(0,0,0)" /> 
+</svg>	
 </div>
-<br>
 
 
 
@@ -171,6 +172,8 @@ script_3 = '''
     </script>
 
     <link href="html/CSS/custom.css" rel="stylesheet"/>
+    <link href="html/CSS/mystyle.css" rel="stylesheet"/>
+    
 
     <style>
         p {
