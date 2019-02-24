@@ -27,7 +27,8 @@ input {
   border: 1px solid #333;
   width: 58%;
   height: 40px;
-  font-size: 1.5em;
+  font-size: 1.1em;
+  font-weight: 50;
   text-align: center;
   border-radius: 5px;
   margin-left: 100px;
@@ -37,18 +38,18 @@ button {
   float: left;
   border: 4px;
   margin-left: 10px;
-  background-color: #ff7e70;
+  background-color: #444;
   color: white;
   width: 15%;
   height: 42px;
-  font-size: 1.5em;
+  font-size: 1.1em;
   border-radius: 5px;
  
 
 }
 
 button:hover {
-  background-color: #444;
+  background-color: #0085A1;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;

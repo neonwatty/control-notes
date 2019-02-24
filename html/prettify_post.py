@@ -9,68 +9,19 @@ soup = BeautifulSoup(open(filename),"lxml")
 # page_title becomes the page title and series becomes the series name (duh!)
 foo = soup.find_all('h1')[0]
 page_title = foo.next_element
-foo = soup.find_all('h2')[0]
-series = foo.next_element
+#foo = soup.find_all('h2')[0]
+#series = foo.next_element
+
+series_url = "foo"
 
 # name will become the filename: eg, name.html and name.ipynb
 name = soup.html.head.title.string
 
 # change title to page_title
 soup.html.head.title.string = page_title
-
-# assign series URL
-if 'differentiation' in series.lower():
-    series_url = '3_Automatic_differentiation'
-    
-if 'zero' in series.lower():
-    series_url = '5_Zero_order_methods'
+ 
+	
         
-if 'first' in series.lower():
-    series_url = '6_First_order_methods'    
-    
-if 'second' in series.lower():
-    series_url = '7_Second_order_methods'    
-    
-if 'linear' in series.lower() and 'regression' in series.lower():
-    series_url = '8_Linear_regression'   
-    
-if 'linear' in series.lower() and 'unsupervised' in series.lower():
-    series_url = '11_Linear_unsupervised_learning'
-    
-if 'reinforcement' in series.lower() and 'foundation' in series.lower():
-    series_url = '18_Reinforcement_Learning_Foundations'                           
-  
-if 'multiclass' in series.lower() and 'linear' in series.lower():
-    series_url = '10_Linear_multiclass_classification'    
-
-if 'classification' in series.lower() and 'linear' in series.lower():
-    series_url = '9_Linear_twoclass_classification'  
-
-if 'nonlinear' in series.lower() and 'introduction' in series.lower():
-    series_url = '12_Nonlinear_intro'   
-    
-if 'layer' in series.lower() and 'perceptron' in series.lower():
-    series_url = '13_Multilayer_perceptrons'
-    
-if 'convolution' in series.lower() and 'network' in series.lower():
-    series_url = '14_Convolutional_networks'   
-
-if 'recurrent' in series.lower() and 'network' in series.lower():
-    series_url = '15_Recurrent_Networks'  
-    
-if 'selection' in series.lower() and 'engin' in series.lower():
-    series_url = '9_Feature_engineer_select' 
-    
-if 'nonlinear' in series.lower() and 'feature' in series.lower():
-    series_url = '10_Nonlinear_intro'  
-    
-if 'principle' in series.lower() and 'learning' in series.lower():
-    series_url = '11_Feature_learning'  
-    
-if 'element' in series.lower() and 'algebra' in series.lower():
-    series_url = '16_Computational_linear_algebra'           
-    
-          
          
 
 # This script adds navigation bar + sharing logos + title
@@ -83,73 +34,80 @@ script_1 = '''
 
 </div> -->
 
-<br><br><br>
 
-<!-- share buttons -->
-<div style="width: 53%; margin:auto;">
+   <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="https://dgsix.com">degree six</a>
+            </div>
 
-	<div id="1" style="width: 75%; float:left;">
-		<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">code</span>
-		<div style="width: 95px; border-bottom: solid 1px; border-color:black;">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="https://dgsix.com/team">About</a>
+                    </li>
+                    <li>
+                        <a href="https://dgsix.com/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-			<div class="logo-share"></div>
-			<div class="logo-share"></div>
 
-			<div class="logo-share">
-				<!-- github -->
-				<a target="_blank" href="https://github.com/jermwatt/mlrefined/blob/gh-pages/blog_posts/'''+series_url+'''/'''+ name+'''.ipynb">
-					<img src="../../html/pics/github.png" width=28 height=28 onmouseover="this.src='../../html/pics/github_filled.png';" onmouseout="this.src='../../html/pics/github.png';">
-				</a>
-			</div>
-		</div>
-	</div>
+    <hr>
 
-	<div id="2" style="width: 25%; float:left;">
-		<span style="color:black; font-family:'lato', sans-serif; font-size: 18px;">share</span>
-		<div style="width: 210px; border-bottom: solid 1px; border-color:black;">
+<div class="page-title" style="text-align: center !important;"> 
+<!-- github
+<div><a href="https://github.com/jermwatt/machine_learning_refined" style="text-decoration: none" target="_blank"><button class="btn-star">★ Our Project On GitHub</button></a></div>
+-->
+<div style="width: 100%; margin:auto;">
 
-			<div class="logo-share"></div>
-			<div class="logo-share"></div>
+<div class="logo-share">
+<!-- linkedin -->
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fblog.dgsix.com%2F'''+ name+'''.html" target="_blank">
+<img height="18" onmouseout="this.src='img/linkedin_off.png';" onmouseover="this.src='img/linkedin_on.png';" src="img/linkedin_off.png" width="18"/>
+</a>
+</div>
 
-			<div class="logo-share">
-				<!-- linkedin -->
-				<a target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
-					<img src="../../html/pics/linkedin.png" width=28 height=28 onmouseover="this.src='../../html/pics/linkedin_filled.png';" onmouseout="this.src='../../html/pics/linkedin.png';">
-				</a>
-			</div>
 
-			<div class="logo-share"></div>
+<div class="logo-share">
+<!-- facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.dgsix.com%2F'''+ name+'''.html" target="_blank">
+<img height="18" onmouseout="this.src='img/facebook_off.png';" onmouseover="this.src='img/facebook_on.png';" src="img/facebook_off.png" width="18"/>
+</a>
+</div>
 
-			<div class="logo-share">
-				<!-- twitter -->
-				<a target="_blank" href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&tw_p=tweetbutton&url=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
-					<img src="../../html/pics/twitter.png" width=28 height=28 onmouseover="this.src='../../html/pics/twitter_filled.png';" onmouseout="this.src='../../html/pics/twitter.png';">
-				</a>
-			</div>
 
-			<div class="logo-share"></div>
-
-			<div class="logo-share">
-				<!-- facebook -->
-				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjermwatt.github.io%2Fmlrefined%2Fblog_posts%2F'''+series_url+'''%2F'''+ name+'''.html">
-					<img src="../../html/pics/facebook.png" width=28 height=28 onmouseover="this.src='../../html/pics/facebook_filled.png';" onmouseout="this.src='../../html/pics/facebook.png';">
-				</a>
-			</div>
-		</div>
-
-	</div>
+<div class="logo-share">
+<!-- twitter -->
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fblog.dgsix.com%2F'''+ name+'''.html" target="_blank">
+<img height="18" onmouseout="this.src='img/twitter_off.png';" onmouseover="this.src='img/twitter_on.png';" src="img/twitter_off.png" width="18"/>
+</a>
 </div>
 
 <br><br>
 
-<div class="page-title" style="text-align: center !important;">
-	<span style="color: #333; font-size: 40%; letter-spacing: 3px;">
-		<span style="font-size: 80%;">&#x25BA; </span><a target="_blank" href="https://jermwatt.github.io/mlrefined/index.html" style="color: black; cursor: pointer; text-transform: uppercase; font-weight:bold;">'''+ series + '''</a>
-	</span>
-	<br><br>
 	<mark style="padding: 0px; background-color: #f9f3c2;">'''+ page_title +'''</mark>
 </div>
-<br>'''
+<br>
+
+
+
+
+'''
 
 # parse script as BeautifulSoup object
 html_1 = BeautifulSoup(script_1,'html.parser')
@@ -159,27 +117,33 @@ soup.body.insert(0, html_1)
 
 
 # # This script adds comment section to the bottom of the page
-# script_2 = '''
-# <br><br><br><br><br><br>
+script_2 = '''
+ 
+   <!-- Footer -->
 
-# <!-- comment section -->
-# <div id="disqus_thread" style="width:70%; height:auto; margin:auto;"></div>
-# <script>
-# (function() { // DON'T EDIT BELOW THIS LINE
-# var d = document, s = d.createElement('script');
-# s.src = 'https://mlrefined.disqus.com/embed.js';
-# s.setAttribute('data-timestamp', +new Date());
-# (d.head || d.body).appendChild(s);
-# })();
-# </script>
-# <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-# '''
+ 
+ 
+ 
+ <br><br><br><br><br><br>
+
+ <!-- comment section -->
+ <div id="disqus_thread" style="width:70%; height:auto; margin:auto;"></div>
+ <script>
+ (function() { // DON'T EDIT BELOW THIS LINE
+ var d = document, s = d.createElement('script');
+ s.src = 'https://degreesix.disqus.com/embed.js';
+ s.setAttribute('data-timestamp', +new Date());
+ (d.head || d.body).appendChild(s);
+ })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+ '''
 
 # # parse script as BeautifulSoup object
-# html_2 = BeautifulSoup(script_2,'html.parser')
+html_2 = BeautifulSoup(script_2,'html.parser')
 
 # # insert it as the last element of body tag, hence: -1
-# soup.body.insert(-1, html_2)
+soup.body.insert(len(soup.body.contents), html_2)
 
 
 # This script changes default LateX font to a prettier version
@@ -206,7 +170,7 @@ script_3 = '''
     });
     </script>
 
-    <link href="../../html/CSS/custom.css" rel="stylesheet"/>
+    <link href="html/CSS/custom.css" rel="stylesheet"/>
 
     <style>
         p {
@@ -214,8 +178,28 @@ script_3 = '''
             text-justify: inter-word !important;
         }
     </style>
+    
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Clean Blog - Sample Post</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     '''
+
 # parse script as BeautifulSoup object
 html_3 = BeautifulSoup(script_3, 'html.parser')
 
@@ -229,8 +213,6 @@ soup = BeautifulSoup(soup.renderContents(),"lxml")
 # remove old title
 soup.body.find_all('h1')[0].decompose()
 
-# remove old series title
-soup.body.find_all('h2')[0].decompose()
 
 # remove code cells that contain the following message
 # 'in the HTML version'
