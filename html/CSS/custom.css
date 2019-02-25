@@ -21,7 +21,7 @@
 }
 
 .logo-share { /* social media logos */
-	float:  right;
+	float:  left;
 	width: 30px; 
 	height:30px;
 	position: relative;
