@@ -47,7 +47,8 @@ hr.small {
   border-color: white;
 }
 .navbar-custom {
-  position: absolute;
+
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -71,11 +72,11 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    background: white;
+    background: #222;
     border-bottom: 1px solid;
   }
   .navbar-custom .navbar-brand {
-    color: black;
+    color: #ffffff;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
@@ -83,7 +84,7 @@ hr.small {
     color: #0085A1;
   }
   .navbar-custom .nav li a {
-    color: black;
+    color: #ffffff;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
