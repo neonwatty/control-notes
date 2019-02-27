@@ -38,7 +38,7 @@ button {
   float: left;
   border: 4px;
   margin-left: 10px;
-  background-color: #444;
+  background-color: #03333C;
   color: white;
   width: 15%;
   height: 40px;
@@ -54,7 +54,6 @@ button:hover {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-
 
 
 
