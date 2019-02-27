@@ -113,25 +113,25 @@ class Visualizer:
                 clear_output()
                 
             # plot x
-            ax1.plot(np.arange(1,x.size + 1),x,alpha = 1,c = 'k',linewidth = 1,zorder = 2);
+            ax1.plot(np.arange(1,x.size + 1),x,alpha = 1,c = 'k',linewidth = 2,zorder = 2);
 
             # plot moving average - initial conditions
             if k == 1:
-                ax1.plot(np.arange(1,T + 1),y[:T],alpha = 0.75,c = 'fuchsia',linewidth = 3,zorder = 3);
+                ax1.plot(np.arange(1,T + 1), y[:T], alpha = 0.75, c = 'darkorange',linewidth = 4,zorder = 3);
                 
                 # make vertical visual guides
-                ax1.axvline(x = 1)
-                ax1.axvline(x = T)
+                ax1.axvline(x = 1, c='deepskyblue')
+                ax1.axvline(x = T, c='deepskyblue')
                 
             # plot moving average - everything after and including initial conditions
             if k > 1:
                 j = k-1
                 # plot 
-                ax1.plot(np.arange(1,T + j + 1),y[:T + j],alpha = 0.7,c = 'fuchsia',linewidth = 3,zorder = 3);
+                ax1.plot(np.arange(1,T + j + 1),y[:T + j],alpha = 0.7,c = 'darkorange',linewidth = 4,zorder = 3);
                 
                 # make vertical visual guides
-                ax1.axvline(x = j)
-                ax1.axvline(x = j + T - 1)
+                ax1.axvline(x = j, c='deepskyblue')
+                ax1.axvline(x = j + T - 1, c='deepskyblue')
                 
             # label axes
             ax1.set_xlim([xmin,xmax])
@@ -189,7 +189,7 @@ class Visualizer:
             if k > 0:
                 T = params[k-1]
                 y = func(x,T)
-                ax1.plot(np.arange(1,y.size + 1),y,alpha = 0.9,c = 'fuchsia',linewidth = 3,zorder = 3);
+                ax1.plot(np.arange(1,y.size + 1),y,alpha = 0.9,c = 'darkorange',linewidth = 3,zorder = 3);
                 ax1.set_title(r'$D = $ ' + str(T))
 
             # label axes

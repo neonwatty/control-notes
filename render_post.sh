@@ -2,7 +2,7 @@
 
 if [[ $1 == "-all" ]]; then # re-make all html files
 
-	find notes -type f -print0 | while read -d $'\0' file; do
+	find posts -type f -print0 | while read -d $'\0' file; do
 		# blog_post files: ipynb and NOT Lecture and NOT checkpoint 
 		if [[ $file == *"ipynb"* ]] && [[ $file != *"Lecture"* ]] && [[ $file != *"checkpoint"* ]]; then
   			# convert to raw html

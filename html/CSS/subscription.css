@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
 
 			*,
 *:before,
 *:after {
-
-
-
   border: none;
   padding: 0;
 
@@ -21,6 +17,8 @@ form {
 }
 
 input {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
   float: left;
   background-color: white;
   color: #111;
@@ -35,14 +33,16 @@ input {
 }
 
 button {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 600;
   float: left;
   border: 4px;
   margin-left: 10px;
   background-color: #444;
   color: white;
   width: 15%;
-  height: 42px;
-  font-size: 1.1em;
+  height: 40px;
+  font-size: 1em;
   border-radius: 5px;
  
 

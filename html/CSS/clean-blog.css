@@ -72,8 +72,8 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    background: #222;
-    border-bottom: 1px solid;
+    background: #03333C;
+    border-bottom: 1px solid #03333C;
   }
   .navbar-custom .navbar-brand {
     color: #ffffff;
