@@ -9,9 +9,6 @@ from matplotlib import gridspec
 import copy
 import numpy as np
 
-# import custom animation slider widget
-from demo_libraries.JSAnimation_slider_only import IPython_display_slider_only
-
 
 class Animator:
     #### animate multiple runs on single regression ####

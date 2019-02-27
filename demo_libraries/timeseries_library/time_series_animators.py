@@ -13,17 +13,13 @@ import time
 import copy
 from inspect import signature
 
-# import custom animation slider widget
-from demo_libraries.JSAnimation_slider_only import IPython_display_slider_only
-
-
 class Visualizer:
     '''
     animators for time series
     '''
-        
+    
     #### animate running average ####
-    def animate_running_ave(self,x,y,**kwargs):
+    def animate_running_ave(self,x,y,savepath,**kwargs):
         # produce figure
         fig = plt.figure(figsize = (9,4))
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,7,1]) 
@@ -76,10 +72,15 @@ class Visualizer:
 
         anim = animation.FuncAnimation(fig, animate ,frames=num_frames, interval=num_frames, blit=True)
         
-        return(anim)
-    
+        # produce animation and save
+        fps = 50
+        if 'fps' in kwargs:
+            fps = kwargs['fps']
+        anim.save(savepath, fps=fps, extra_args=['-vcodec', 'libx264'])
+        clear_output()
+
     #### animate moving average ####
-    def animate_moving_ave(self,x,y,T,**kwargs):
+    def animate_moving_ave(self,x,y,T,savepath,**kwargs):
         # produce figure
         fig = plt.figure(figsize = (9,4))
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,7,1]) 
@@ -140,10 +141,19 @@ class Visualizer:
 
         anim = animation.FuncAnimation(fig, animate ,frames=num_frames, interval=num_frames, blit=True)
         
-        return(anim)
- 
+        # produce animation and save
+        fps = 50
+        if 'fps' in kwargs:
+            fps = kwargs['fps']
+        anim.save(savepath, fps=fps, extra_args=['-vcodec', 'libx264'])
+        clear_output()
+
     #### animate range of moving average calculations ####
-    def animate_moving_average_range(self,x,func,params,**kwargs):
+    def animate_moving_average_range(self,x,func,params,savepath,**kwargs):
+        playback = 1
+        if 'playback' in kwargs:
+            playback = kwargs['playback']
+            
         # produce figure
         fig = plt.figure(figsize = (9,4))
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,7,1]) 
@@ -200,10 +210,15 @@ class Visualizer:
 
         anim = animation.FuncAnimation(fig, animate ,frames=num_frames, interval=num_frames, blit=True)
         
-        return(anim)
+        # produce animation and save
+        if 'fps' in kwargs:
+            fps = kwargs['fps']
+            
+        anim.save(savepath, fps=1, extra_args=['-vcodec', 'libx264'])
+        clear_output()
 
     #### animate range of exponential average calculations ####
-    def animate_exponential_average_range(self,x,func,params,**kwargs):
+    def animate_exponential_average_range(self,x,func,params,savepath,**kwargs):
         # produce figure
         fig = plt.figure(figsize = (9,4))
         gs = gridspec.GridSpec(1, 3, width_ratios=[1,7,1]) 
@@ -260,4 +275,9 @@ class Visualizer:
 
         anim = animation.FuncAnimation(fig, animate ,frames=num_frames, interval=num_frames, blit=True)
         
-        return(anim)
+        # produce animation and save
+        fps = 50
+        if 'fps' in kwargs:
+            fps = kwargs['fps']
+        anim.save(savepath, fps=fps, extra_args=['-vcodec', 'libx264'])
+        clear_output()

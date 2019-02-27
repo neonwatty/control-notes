@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>Moving averages</title>
+<title>Stochastic dynamic systems - a.k.a. Markov Chains</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script>
@@ -13106,9 +13106,9 @@ div#notebook {
 <!-- Load mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <!-- MathJax configuration -->
-<meta content="Moving averages" property="og:title"/>
+<meta content="Stochastic dynamic systems - a.k.a. Markov Chains" property="og:title"/>
 <meta content="https://raw.githubusercontent.com/jermwatt/machine_learning_refined/gh-pages/html/pics/meta.png" property="og:image"/>
-<meta content="https://blog.dgsix.com/posts/moving_averages/Moving_averages.html" property="og:url"/>
+<meta content="https://blog.dgsix.com/posts/markov_chains/Markov_chains.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13194,24 +13194,24 @@ div#notebook {
 <div style="width: 100%; margin:auto;">
 <div class="logo-share">
 <!-- linkedin -->
-<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fblog.dgsix.com%2Fposts/moving_averages/Moving_averages.html" target="_blank">
+<a href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fblog.dgsix.com%2Fposts/markov_chains/Markov_chains.html" target="_blank">
 <img height="18" onmouseout="this.src='../../html/images/linkedin_off.png';" onmouseover="this.src='../../html/images/linkedin_on.png';" src="../../html/images/linkedin_off.png" width="18"/>
 </a>
 </div>
 <div class="logo-share">
 <!-- facebook -->
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.dgsix.com%2Fposts/moving_averages/Moving_averages.html" target="_blank">
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.dgsix.com%2Fposts/markov_chains/Markov_chains.html" target="_blank">
 <img height="18" onmouseout="this.src='../../html/images/facebook_off.png';" onmouseover="this.src='../../html/images/facebook_on.png';" src="../../html/images/facebook_off.png" width="18"/>
 </a>
 </div>
 <div class="logo-share">
 <!-- twitter -->
-<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fblog.dgsix.com%2Fposts/moving_averages/Moving_averages.html" target="_blank">
+<a href="https://twitter.com/intent/tweet?ref_src=twsrc%5Etfw&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fblog.dgsix.com%2Fposts/markov_chains/Markov_chains.html" target="_blank">
 <img height="18" onmouseout="this.src='../../html/images/twitter_off.png';" onmouseover="this.src='../../html/images/twitter_on.png';" src="../../html/images/twitter_off.png" width="18"/>
 </a>
 </div>
 <br/><br/>
-<div style="padding: 0px;">Moving averages</div>
+<div style="padding: 0px;">Stochastic dynamic systems - a.k.a. Markov Chains</div>
 <svg height="15" width="80">
 <rect height="15" style="fill:#0085A1; stroke-width:0; stroke:rgb(0,0,0)" width="80"></rect>
 </svg>
@@ -13229,19 +13229,16 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In many applications of machine learning the input data has <em>spatial</em> structure that can, and should, be leveraged when solving associated learning problems.  In this short post we discuss single-dimensional moving averages, which are widely used in machine learning as a pre-processing step for time-series problems.</p>
-<p>You can skip around this document to particular subsections via the hyperlinks below.</p>
+<p>Some fixed order dynamic systems are naturally <em>stochastic</em> (or - in other words - involve a bit of randomness)</p>
 <ul>
-<li><a href="#moving-average-intro">Denoising time series using a moving average</a></li>
-<li><a href="#moving-average-details">Moving averages: mathematical details</a></li>
-<li><a href="#python-implementation">Python implementation</a></li>
+<li>but one which is naturally <em>stochastic</em>.  In this Subsection we introduce the basic version of such a model via its most popular application - as a model of written text.  This kind of dynamic system is often referred to as a <em>Markov Chain</em>.</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 
 </div>
@@ -13250,132 +13247,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id="moving-average-intro"></a></p>
-<h2 id="Denoising-time-series-using-a-moving-average">Denoising time series using a moving average<a class="anchor-link" href="#Denoising-time-series-using-a-moving-average">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose we have a <em>time series</em> like the one shown below (a snippet of historical stock prices for a major car manufacturer).  When analyzing such time series for trends it is quite common to first <em>smooth</em> them.  One way to do this is via a <em>moving average</em> - wherein we take a small window and slide it along the time series from its start to finish and average the values inside.  Taking the average inside of each little window tends to cancel out noisy values, resulting in a smoothed version of the original series that is easier to study.  Below we animate the process of building a moving average from left to right.  As the animation progresses and you will see the window in which each average is computed straddled on both sides by vertical blue bars, with the resulting moving average shown as an orange series.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [55]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [56]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[56]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_1.mp4" type="video/mp4">
-</source></video>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Below we animate the process above more slowly and only on the first $50$ elements of the input series.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [57]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [58]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[58]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_2.mp4" type="video/mp4">
-</source></video>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In these examples the length of the window - also called the "order" of the moving average and denoted by $D$ - was $D = 50$.  Note as you increase the order how the moving average gets smoother, but mirrors the structure of the true underlying input sequence less and less.  We illustrate this via the animation below.</p>
-<p>Also notice how the delay of the moving average - how its values consistently trail those of the original series - increases with the order of the system and is an artifact of using a large history of equally weighted examples of the series as a predictor of its next values.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[3]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<video controls="" height="400" loop="" width="1000">
-<source src="videos/animation_3.mp4" type="video/mp4">
-</source></video>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a id="moving-average-details"></a></p>
-<h2 id="Moving-averages:-mathematical-details">Moving averages: mathematical details<a class="anchor-link" href="#Moving-averages:-mathematical-details">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Time-series data is one of the most common types of one-dimensional data one typically deals with in machine learning.  A single dimensional time-series data set consisting of $P$ naturally ordered points takes the general form</p>
-\begin{equation}
-\left(t_1,x_1\right),\, \left(t_2,x_2\right),\, \ldots,\, \left(t_P,x_P\right)
-\end{equation}<p>where the inputs $t_1,\ldots,t_P$ are time-marks or time-stamps sorted in ascending order (that is, $t_1&lt;t_2&lt;\cdots&lt;t_P$), with $x_1,\ldots,x_P$ denoting the corresponding output values respectively. Figure 1 shows a prototypical time-series data set where every two successive data points, i.e., $\left(t_p,x_p\right)$ and $\left(t_{p+1},x_{p+1}\right)$, are connected via a line segment. This - typically referred to as <em>linear interpolation</em> - is done merely to facilitate visualization of the time-series data by giving it a continuous appearance.</p>
+<p>For example, take the simple sentence shown in the animation below "my dog runs".  Each <em>word</em> in this sentence does - intuitively - seem to follow its predecessor in an orderly, functional, and predictable way.  In the animation below we walk through the sentence word-by-word, highlighting the fact that each word follows its immediate predecessor just like a $D=1$ dynamic system.</p>
 </div>
 </div>
 </div>
@@ -13383,8 +13255,11 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <figure>
-<img height="auto" src="images/prototypical_time_series_data.png" width="80%"/>
-<figcaption> <strong>Figure 1:</strong> <em> A prototypical time-series data with $N=6$ data points.</em>
+<p>
+<img alt="" height="50%" src="../../images/markov_chains/dog1.gif" width="50%"/>
+</p>
+<figcaption> <strong>Figure 2:</strong> <em> Each word in a simple English sentence follows its predecessor in an orderly, functional, and predictive fashion - much like an order $D=1$ dynamic system.
+</em>
 </figcaption>
 </figure>
 </div>
@@ -13393,9 +13268,99 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Time-series data, in many cases, is collected at equally-spaced points in time.  For example, stock exchanges around the world typically publish their data every few minutes (and in some cases every few seconds) whereas the federal spending as a percentage of GDP in the United States, again a time-series data, is published only once every year. Regardless of the temporal resolution and as long as the data is captured at equally-spaced points in time, we can drop the time-marks $t_1,\ldots,t_P$ and represent the data in Equation (1) simply as a one-dimensional sequence of length $P$</p>
+<p>This kind of intuitive leap makes sense more generally as well.  We can also think of each word in a sentence following logically based not just on its immediate predecessor, but several words just like an order $D$ dynamic system.  Text certainly is generally structured like this - with preceding words in sentence determining those that follow.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However while text certainly seems to have the structure of a dynamic system like the ones we have seen thus far, it does have one attribute that we have not seen thus far: choice. A given word does not always completely determine the word that follows it.   For example, in the sentence above we could imagine a range of words following the word "dog" instead of "runs", like e.g., "eats".  This would give us the sentence "my dog eats" instead of "my dog runs", which is a perfectly valid and meaningful English sentence.  Of course there are other words that could follow "dog" as well, some of which like e.g., the word "sighs" that while valid would be less common than "eats".  However some words, like e.g., "dracula", making the sentence "my dog dracula" do not make any sense at all.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<p>
+<img alt="" height="50%" src="../../images/markov_chains/dog2.gif" width="50%"/>
+</p>
+<figcaption> <strong>Figure 3:</strong> <em> Many words could potentially follow the word "dog" in this sentence.  However some words - like "runs" or "eats" - are far more likely than others like "sighs".  Further, some words like e.g., "dracula" do not make any sense.
+</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So in summary, while a valid sentence of English words clearly has <em>ordered</em> structure like a dynamic system, with each word following its predecessor, there are often many <em>choices</em> for subsequent words (unlike the dynamic systems we have seen previously).  Moreover of the choices following a particular word we can reasonably say that some are more likely to occur than others.  In other words, these choices are <em>stochastic</em> in nature (<em>stochastic</em> means <em>choices</em>) - with each having a different probability of occurring.  For example, below we show the four choices of words following "dog" in the sentence above assigning (using our intuition) a probability of occurring to each.  Here we suppose the word "runs" is the most probable, "eats" the next, and so on.  The probabilities shown do not add up to $1$ because there could be other reasonable words that could follow "dog" other than those shown here.  In other words, with this order one dynamic system model of text we have is a <em>histogram</em> (a discrete probability distribution) over all the possible words that follow 'dog' (as well as any other word).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<p>
+<img alt="" height="60%" src="../../images/markov_chains/dog3.png" width="60%"/>
+</p>
+<figcaption> <strong>Figure 4:</strong> <em> Here we show the selection of words from Figure 3 that could possibly follow the word "dog", along with a probability $p$ of the word occurring (which here we set ourselves via intuition).  In this case the word "eats" has the highest probability of occurring after "dog", then "runs", and so on.  The probabilities do not add up to $1$ because there are other words that could reasonably follow "dog" that we do not list here.
+</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note how we could just as well model text as a general order $D$ model in terms of its words, in the same manner described above for the case of $D = 1$.  For example below we illustrate an order $D = 2$ word model of the same sentence above.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<p>
+<img alt="" height="60%" src="../../images/markov_chains/dog_with_hist.png" width="80%"/>
+</p>
+<figcaption> <strong>Figure 5:</strong> <em> (left panel) Here we show the selection of words from Figure 3 that could possibly follow the word "dog", along with a probability $p$ of the word occurring (which here we set ourselves via intuition).  In this case the word "eats" has the highest probability of occurring after "dog", then "runs", and so on.  The probabilities do not add up to $1$ because there are other words that could reasonably follow "dog" that we do not list here. (right panel) The set of next possible words and their discrete probabilities viewed as a *histogram* or discrete probability distribution.
+</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To more accurately estimate these probabilities - and to identify all of the other possible words that follow "dog" - it is common to take a large body of text (like e.g., a long book), scan it for all occurrences of the word "dog" and make a listing of all the words following it along with their frequency.  Then in order to create a sample probability for each - so that the sum of the probabilities adds up to $1$ - we simply divide off the total number of times "dog" appeared in the text (often referred to as a <em>corpus</em>).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Irregardless of how we compute the probabilities, mathematically speaking we codify the list possible outputs and their probability of occurrence - like the list of possible words shown above following "dog" - as a <em>histogram</em> (which is often also called a <em>probability mass function</em>).  This is just a mathematical function with many possible outputs to a single input, each weighted with its respective probability $\mathscr{p}$.  For example, we can formally write the histogram of possible outputs of words following "dog" as</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 \begin{equation}
-x_1,\, x_2,\, \ldots,\, x_P 
+\text{histogram}\left(\text{"dog"}\right) = 
+\begin{cases}
+\text{"runs"} \,\,\,\,\,\,\,\,\,\,\,\, \text{with probability} \,\,\,\mathscr{p} = 0.4 \\
+\text{"eats"} \,\,\,\,\,\,\,\,\,\,\,\,\, \text{with probability} \,\,\,\mathscr{p} = 0.3 \\
+\text{"sighs"} \,\,\,\,\,\,\,\,\,\, \text{with probability} \,\,\,\mathscr{p} = 0.05 \\
+\text{"dracula"} \,\,\,\,\, \text{with probability} \,\,\,\mathscr{p}= 0 \\
+\vdots
+\end{cases}
 \end{equation}
 </div>
 </div>
@@ -13403,15 +13368,15 @@ x_1,\, x_2,\, \ldots,\, x_P
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To construct the first elements in a moving average process for a generic time series we choose a window length or <em>order</em> $B$ that we will average over, and set the first $D$ elements of the moving average to the first $D$ elements of the time series as</p>
+<p>Here in each case '$p$' stands for the <em>probability</em> of the corresponding word occurring.  Our prediction for the next word in the sentence is then simply the one that is most valuable, or the one with the largest probability.  Here suppose that word is "runs".  Translating this statement into math, we predict the word following "dog" by taking the $\text{argmax}$ over all of the choices above as</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 \begin{equation}
-h_p = x_p \,\,\,\,\,\, p=1,...,D.
-\end{equation}<p>This is sometimes referred to as an <em>initial condition</em>.  Once we have $D$ elements we can compute the first real average, setting</p>
-\begin{equation}
-h_{D+1} = \frac{x_1 + x_2 + \cdots + x_{D}}{D}.
-\end{equation}<p>In general when reaching the $p^{th}$ element of the moving average series - where $p$ ranges from $p=D+1,...,P$ - we then compute the moving average value as</p>
-\begin{equation}
-h_{p} = \frac{x_{p-1} + x_{p-2} + \cdots + x_{p-D}}{D}.
+\text{(word we predict to follow "dog")} \,\,\,\,\, \text{"runs"} = \underset{\mathscr{p}}{\text{argmax}}\,\,\,\, \text{historgram}\left(\text{"dog"}\right).
 \end{equation}
 </div>
 </div>
@@ -13419,42 +13384,396 @@ h_{p} = \frac{x_{p-1} + x_{p-2} + \cdots + x_{p-D}}{D}.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The moving average is a simple example of a <em>dynamic system</em>, that is a function of naturally ordered (e.g., time series) data.</p>
+<p>More generally, if we denote by $x_{t}$ the $t^{th}$ word in a sentence, and $u$ any particular word with the probability $\mathscr{p}$ after of $x_{t}$ (often called the <em>transition probability</em>) than the histogram can be written more generally as</p>
+\begin{equation}
+\text{histogram}\left(x_{t}\right) = 
+u \,\,\,\,\text{with probability} \,\,\,\mathscr{p}.
+\end{equation}<p>Then the choice of the next word $x_{t+1}$ can likewise be written in general as</p>
+\begin{equation}
+x_{t+1} = \underset{\mathscr{p}}{\text{argmax}}\,\, \text{histogram}\left(x_{t}\right).
+\end{equation}
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id="python-implementation"></a></p>
-<h2 id="Python-implementation">Python implementation<a class="anchor-link" href="#Python-implementation">¶</a></h2>
+<p>We can perhaps now see how this model of written text is indeed a dynamic system.  If we in general denote</p>
+\begin{equation}
+\underset{\mathscr{p}}{\text{argmax}}\,\, \text{histogram}\left(x_{t}\right) = f\left(x_{t}\right) 
+\end{equation}<p>and the first word in a sentence as $x_1 = \gamma$.  Then the order $D = 1$ model of text we have detailed above does indeed fit the pattern of a <em>recurrence relation</em> as</p>
+\begin{array}
+\
+x_1 = \gamma \\
+x_{t+1} = f\left(x_{t}\right).
+\end{array}
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Moving averages can be implemented in <code>Python</code> in a straightforward manner, as shown below.  Here the input <code>x</code> (to be smoothed) is loaded in as a contiguous list or array, and <code>D</code> is the desired order of the moving average <code>h</code> which is returned as a list.</p>
+<p>We could then likewise define general order $D$ model of text as well.  This would work precisely as we saw above but - as illustrated below for an example where $D = 2$ - instead of one word from the past we use two, making a prediction of the word that follows this pair precisely as we did above (i.e., by forming a histogram / discrete probability distribution of all words that can follow such a pair in a large corpus, and choosing the word with the highest probability / likeliness of occuring).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<p>
+<img alt="" height="80%" src="../../images/markov_chains/order_2.png" width="80%"/>
+</p>
+<figcaption> <strong>Figure 6:</strong> <em> An illustration of an order $D = 2$ Markov chain for modeling text.  Here we use a pair of words and make a prediction about the word following them precisely as we did in the order $D = 1$ case - by forming a historgram / discrete probability distribution over all the words following this pair seen in a large corpus.  Our prediction is then once again the word with the largest value in this histogram / highest discrete probability of occuring.  In this toy example that word is "short".
+</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Formally we can express a general order $D$ dynamic system of this form precisely as we did above for the order $D = 1$ case, via the general update step</p>
+\begin{equation}
+x_{t+1} = f\left(x_{t},...,x_{t-\mathcal{O}+1}\right).
+\end{equation}<p>Here the only difference is that now the function $f$ involves a histogram over the prior words $x_{t},...,x_{t-\mathcal{O}+1}$, i.e.,</p>
+\begin{equation}
+\underset{\mathscr{p}}{\text{argmax}}\,\, \text{histogram}\left(x_{t},...,x_{t-\mathcal{O}+1}\right) = f\left(x_{t},...,x_{t-\mathcal{O}+1}\right) 
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-6.---Generating-text-word-by-word-via-a-Markov-chain"><span style="color:#a50e3e;">Example 6. </span>  Generating text word-by-word via a Markov chain<a class="anchor-link" href="#Example-6.---Generating-text-word-by-word-via-a-Markov-chain">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this example we generate a Markov chain model of text using the classic novel <em>War of the Worlds</em> by H.G. Wells to define our transition probabilities.  Below we print out the first $500$ characters of the novel.  Note some pre-processing has been done here - in particular we removed any strange characters introduced when converting this book to its e-version, and lower-case-afied all alphabetical characters.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># a simple moving average function</span>
-<span class="k">def</span> <span class="nf">moving_average</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">D</span><span class="p">):</span>
-    <span class="c1"># initialize moving average to input series until D elements are present</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[:</span><span class="n">D</span><span class="p">]]</span>
-    
-    <span class="c1"># loop over input series and compute moving averages</span>
-    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">D</span><span class="p">):</span>
-        <span class="c1"># make next element as average of prior D inputs</span>
-        <span class="n">h</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">p</span><span class="p">:</span><span class="n">p</span><span class="o">+</span><span class="n">D</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">D</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">h</span>
-</pre></div>
+
 </div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[28]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>"the war of the worlds  by h. g. wells   but who shall dwell in these worlds if they be  inhabited? are we or they lords of the  world? and how are all things made for man?    kepler (quoted in the anatomy of melancholy)  book one  the coming of the martians  chapter one  the eve of the war no one would have believed in the last years of the nineteenth century that this world was being watched keenly and closely by intelligences greater than man's and yet as mortal as his own; that as men busied "</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using an order $D = 1$ model we then pick a word randomly from the text, and start generating text.  Below we compare a chunk of $30$ words from the text following this initial input, and below it we show the result of the Markov model.  Here the input word $x_1 = \gamma$ is colored red, and the $30$ words generated using it are colored blue.  Note this means that we first plug in the word "had" into our model, which returns the word "been".  Then we return "been" and it returns "the", etc.,</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+had done for countless years as though no planet mars existed in the sky even at woking station and horsell and chobham that was the case in woking junction until late
+
+
+-------- ORDER = 1 MODEL TEXT -------
+<span class="ansi-red-fg">had</span> <span class="ansi-blue-fg">been the martians were the martians were the martians were the martians were the martians were the martians were the martians were the martians were the martians were the martians</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Clearly we can see that the Markov model, having only a single word in the past to base the next word on, does not generate anything meaningful.  However as we increase the order to e.g., $D = 2$ we can see that the generated sentence starts to make more sense, matching its original as shown below.  Here the two initial words are colored red, with the remaining generated words colored blue.  Notice this means that we first plug in the first two words (here the phrase "trucks bearing") and it returns "huge", then we plug in the next two words (here "bearing huge") and it returns "guns", etc.,</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+trucks bearing huge guns and carriages crammed with soldiers these were the guns that were brought up from woolwich and chatham to cover kingston there was an exchange of pleasantries you ll
+
+
+-------- ORDER = 2 MODEL TEXT -------
+<span class="ansi-red-fg">trucks bearing</span> <span class="ansi-blue-fg">huge guns and such morbidities never enter the scheme of their houses astonished how are all things made for the most part the daily telegraph for instance in the darkness</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we increase the order $D$ of the model the generated text will begin to match the original more and more.  For example, by the time we crank up the order to $D = 10$ the text generated by the model is identical to the original.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+we hurried along and the artilleryman talked in whispers and looked now and again over our shoulders once or twice we stopped to listen after time we drew near the road and as we did so we heard the clatter
+
+
+-------- ORDER = 10 MODEL TEXT -------
+<span class="ansi-red-fg">we hurried along and the artilleryman talked in whispers and</span> <span class="ansi-blue-fg">looked now and again over our shoulders once or twice we stopped to listen after time we drew near the road and as we did so we heard the clatter</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why does this happen?  Notice that when we increase the order of the model the number of unique input sequences proliferates rapidly.  Eventually, when we increase the order enough, there remains only a single exemplar (input/output pair) in the text to construct each associated histogram (i.e., every input sequence used to determine the transition probabilities is <em>unique</em>).  Past this point we only have a single example of each input, thus only one choice for its associated output: whatever follows it in the text (with probability $\mathscr{p} = 1$).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr/>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same thought process leading to the word-by-word model of text detailed above also leads to a similar idea: modeling text <em>character-by-character</em>.  All of the same logic developed for the word-wise model applies here as well.  If we examine a string of English text - on the level of characters this time - once again upon reflection we see a natural ordering to the characters (as in the example shown in the Figure below).  Some characters - as with words - seem to naturally follow others.  Of course just as with words, the issue here is once again at each step we have <em>stochasticity</em> or multiple choices for what the next character should be.  In other words, we have a histogram / discrete probability distribution over the full set of possible English characters that reflects the likelihood of each character occurring (with respect to a large corpus on which we build such histograms).  As we increase the order of our model - just as in the word-wise case - our generated text looks more and more like the corpus on which we compute our histograms.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<p>
+<img alt="" height="50%" src="../../images/markov_chains/chars.png" width="70%"/>
+</p>
+<figcaption> <strong>Figure 7:</strong> <em> An illustration of an order $D = 1$ (top), $D = 2$ (middle), and $D = 3$ order Markov chain for modeling text *character-wise*.  In each case to make a reasonable prediction about the next character we form a histogram / discrete probability distribution over all the characters that follow each input character(s) as seen in a large corpus.  Our prediction is then once again the character with the largest value in this histogram / highest discrete probability (note in the order $D = 2$ case shown here the empty circle contains the 'space' character).  As we increase the order here - just as with the word-wise model detailed above - our generated sequence will start to look more and more like the text on which we computed our histograms.
+</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-7.---Generating-text-character-by-character-using-a-Markov-chain"><span style="color:#a50e3e;">Example 7. </span>  Generating text character-by-character using a Markov chain<a class="anchor-link" href="#Example-7.---Generating-text-character-by-character-using-a-Markov-chain">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Just modeled text by <em>words</em> above using a Markov chain, we can likewise model it via <em>characters</em>.  For the same intuitive reasons as discussed in the context of the text-wise modeling scheme - characters often logically follow one another in succession - we can model text as a stochastic dynamic system (a Markov chain) over characters as well.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below we show the result of an order $D = 1$ Markov chain model using the characters instead of words, and the same text (H.G. Well's classic <em>War of the Worlds</em>) to calculate our transition probabilities.  Of course using only a single character as precedent we cannot capture much about the text, as reflected in the generated text below.  Here the single character used as input is colored red, with $300$ generated characters using the order $1$ model colored blue.  Note that this means that the first character "n" is plugged into the model and returns the second, here the space character.  This is then plugged in to generate "t", etc.,</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+now at a pace of many miles a second through the empty gulf of space, hour by hour and day by day, nearer and nearer. it seems to me now almost incredibly wonderful that, with that swift fate hanging over us, men could go about their petty concerns as they did.  i remember how jubilant markham was at
+
+
+-------- ORDER = 1 MODEL TEXT -------
+<span class="ansi-red-fg">n</span><span class="ansi-blue-fg"> the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the the</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we saw in the previous example, as we increase the order $D$ of the model we capture more and more about the text, and can therefore generate more and more meaningful sentences.  For example, below we show the result of an order $D = 5$ model, comparing to the similar chunk of the true text.  With this many characters we actually start to generate a number of real words.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+dow from which we had watched the martians, and went very quietly downstairs.  the artilleryman agreed with me that the house was no place to stay in.  he proposed, he said, to make his way londonward, and thence rejoin his battery no. , of the horse artillery.  my plan was to return at once to leatherhe
+
+
+-------- ORDER = 5 MODEL TEXT -------
+<span class="ansi-red-fg">dow f</span><span class="ansi-blue-fg">rom the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham before the street cobham bef</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Increasing the order $D = 10$ we can further observe this trend.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+from which it had been strained. the vapour did not diffuse as a true gas would do.  it hung together in banks, flowing sluggishly down the slope of the land and driving reluctantly before the wind, and very slowly it combined with the mist and moisture of the air, and sank to the earth in the form of dust. s
+
+
+-------- ORDER = 10 MODEL TEXT -------
+<span class="ansi-red-fg">from which</span><span class="ansi-blue-fg"> the martians were setting fire to everything was to be done.  we're under! we're beat."  "but if that is so, what is the essence of the pit.  i saw an abandoned arguments.  it was a lieutenant.  "what confounded nonsense!"  "you'll hear more of elevation of the great majority of people were haggard</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, just as in the word generating case, if we increase the order $D$ past a certain point our model will generate the text exactly.  Below we show the result of an order $D = 50$ model, which generates precisely the true text shown above it.  This happens for exactly the same reasoning given previously in the context of the word based model: as we increase the order of the model the number of unique input sequences balloons rapidly, until each input sequence of the text is <em>unique</em>.  This means that there is only one example of each used to determine the transition probabilities, i.e., precisely the one present in the text.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-------- TRUE TEXT -------
+tte of maybury hill, with its tree-tops and roofs black and sharp against the red.  even as i beheld this a lurid green glare lit the road about me and showed the distant woods towards addlestone.  i felt a tug at the reins.  i saw that the driving clouds had been pierced as it were by a thread of green fire, suddenly lighting their confusion and f
+
+
+-------- ORDER = 50 MODEL TEXT -------
+<span class="ansi-red-fg">tte of maybury hill, with its tree-tops and roofs </span><span class="ansi-blue-fg">black and sharp against the red.  even as i beheld this a lurid green glare lit the road about me and showed the distant woods towards addlestone.  i felt a tug at the reins.  i saw that the driving clouds had been pierced as it were by a thread of green fire, suddenly lighting their confusion and f</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="15.3.3--Fixed-order-and-limited-memory">15.3.3  Fixed order and limited memory<a class="anchor-link" href="#15.3.3--Fixed-order-and-limited-memory">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The consequence of such systems being limited by their order is perhaps most clearly seen by a simple example of a Markov chain model of text.  For example, suppose we have constructed a word-based Markov model of order $D = 1$, whose transition probabilities have been determined using a large text corpus.  We the apply our model to both of the sentences shown below, to predict the word following "is".</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<figure>
+<p>
+<img alt="" height="60%" src="../../images/markov_chains/dog4.png" width="60%"/>
+</p>
+<figcaption> <strong>Figure 5:</strong> <em>  The main shortcoming of fixed order systems is exemplified in this toy example.  Here we suppose we have an order $D = 1$ model whose transition probabilities have been determined on a large training corpus.  Here we use our order $D = 1$ to predict the next word of each setnence, following the word "is".  However since the model is order $D = 1$ the *same* word will be predicted for each sentence.  Given the different subject / context of each, this will likely mean that at least one of the sentences will not make sense.
+</em>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The problem here is that - because we have used an order $D = 1$ model - the <em>same</em> word will be predicted to follow the word "is" in both sentences.  This will likely mean that at least one (if not both) of the completed sentences will not make sense, since they have completely different subjects.  Because a fixed order dynamic system is limited by its order, and cannot use any information from earlier in a sequence, this problem can arise regardless of the order $D$ we choose.</p>
 </div>
 </div>
 </div>
