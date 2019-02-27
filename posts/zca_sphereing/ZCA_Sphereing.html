@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>An introduction to ZCA-sphereing</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>An introduction to ZCA-sphering</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <style type="text/css">
     /*!
@@ -11744,7 +11744,7 @@ div#notebook {
 <!-- Load mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <!-- MathJax configuration -->
-<meta content="An introduction to ZCA-sphereing" property="og:title"/>
+<meta content="An introduction to ZCA-sphering" property="og:title"/>
 <meta content="https://raw.githubusercontent.com/jermwatt/machine_learning_refined/gh-pages/html/pics/meta.png" property="og:image"/>
 <meta content="https://blog.dgsix.com/posts/zca_sphereing/ZCA_Sphereing.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -11846,7 +11846,7 @@ div#notebook {
 </a>
 </div>
 <br/><br/>
-<div style="padding: 0px;">An introduction to ZCA-sphereing</div>
+<div style="padding: 0px;">An introduction to ZCA-sphering</div>
 <svg height="15" width="80">
 <rect height="15" style="fill:#0085A1; stroke-width:0; stroke:rgb(0,0,0)" width="80"></rect>
 </svg>
@@ -11866,19 +11866,19 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this short post we describe <em>Zero Phase Component Analysis Sphereing</em> - or <em>ZCA sphereing</em> for short.  ZCA sphereing is a popular <em>input-normalization</em> technique akin <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">standard normalization</a> and <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html">PCA-sphereing</a>, but made especially for image, video, and other naturally ordered data types (here we will focus on its application to image-based data.  As with these other input-normalization schemes, when properly applied ZCA-sphereing conditions data in such a way as to substantially accelerate the training of supervised and unsupervised learners (and convolutional networks in general).  Note: this post assumes</p>
+<p>In this short post we describe <em>Zero Phase Component Analysis Sphering</em> - or <em>ZCA sphering</em> for short.  ZCA sphering is a popular <em>input-normalization</em> technique akin <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">standard normalization</a> and <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html">PCA-sphering</a>, but made especially for image, video, and other naturally ordered data types (here we will focus on its application to image-based data.  As with these other input-normalization schemes, when properly applied ZCA-sphering conditions data in such a way as to substantially accelerate the training of supervised and unsupervised learners (and convolutional networks in general).  Note: this post assumes</p>
 <ul>
 <li><p>basic familiarity with edge-based feature extractors (like e.g., convolutional networks or even <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_2_Histogram.html">basic edge-based histogram features</a>) - i.e., that you understand the importance of extracting edge information from images for un/supervised learning tasks involving image data</p>
 </li>
-<li><p>familiarity with <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">standard normalization</a> and <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html">PCA-sphereing</a> techniques</p>
+<li><p>familiarity with <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">standard normalization</a> and <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html">PCA-sphering</a> techniques</p>
 </li>
 </ul>
 <p>You can skip around this document to particular subsections via the hyperlinks below.</p>
 <ul>
 <li><a href="#contrast-normalization">Contrast normalization</a></li>
 <li><a href="#unwanted-edges">Introducing unwanted edges with typical input normalizers</a></li>
-<li><a href="#PCA-sphereing">What went wrong with PCA-sphereing?</a></li>
-<li><a href="#ZCA-sphereing">ZCA-sphereing</a></li>
+<li><a href="#PCA-sphereing">What went wrong with PCA-sphering?</a></li>
+<li><a href="#ZCA-sphereing">ZCA-sphering</a></li>
 <li><a href="#python-implementation">Python implementation</a></li>
 </ul>
 </div>
@@ -11905,7 +11905,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Before discussing ZCA-sphereing lets talk about <em>contrast normalization</em>.  Contrast normalization is a standard pre-processing technique applied to almost all image-based datasets which simply involves <em><a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">standard normalizing</a> each image in a dataset</em>, that is subtracting its mean (pixel) value and dividing off its standard deviation.  This helps adjust for <em>contrast differences</em> in the various images in a dataset and virtually always done prior to any <em>feature-wise normalization technique</em> like ZCA sphereing.</p>
+<p>Before discussing ZCA-sphering lets talk about <em>contrast normalization</em>.  Contrast normalization is a standard pre-processing technique applied to almost all image-based datasets which simply involves <em><a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">standard normalizing</a> each image in a dataset</em>, that is subtracting its mean (pixel) value and dividing off its standard deviation.  This helps adjust for <em>contrast differences</em> in the various images in a dataset and virtually always done prior to any <em>feature-wise normalization technique</em> like ZCA sphering.</p>
 <p>Why normalize the image contrast first?  Because we almost never want an image-based learner to be sensitive to contrast, since this would make natural image based learning tasks like e.g., object detection much more difficult to solve (see e.g., the simple <a href="https://github.com/jermwatt/machine_learning_refined/blob/gh-pages/sample_chapters/1st_ed/chapter_4.pdf">example described in Figure 4.26</a> of the first edition of our textbook).  In other words, contrast normalization helps our learners treat all images equally by normalizing their average intensity.  Below we show an example image on the left and its contrast normalized version on the right.</p>
 </div>
 </div>
@@ -11921,10 +11921,10 @@ div#notebook {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="87d5d511-df99-4145-9e74-b28b5f05441a"></div>
+<div id="18bdaa50-8ec8-40dd-878c-d70596f06a18"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#87d5d511-df99-4145-9e74-b28b5f05441a');
+var element = $('#18bdaa50-8ec8-40dd-878c-d70596f06a18');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12726,7 +12726,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">this set of notes</a> you can see how the simple idea of <em>standard normalizing</em> the input of a machine learning dataset could drastically improve the learning ability of a zero or first order local optimization technique by improving the contours of any associated cost function.  The natural evolution of this idea - <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html">PCA sphereing</a> - can help even further improve the nature of a cost function, allowing for even easier learning.</p>
+<p>In <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_3_Scaling.html">this set of notes</a> you can see how the simple idea of <em>standard normalizing</em> the input of a machine learning dataset could drastically improve the learning ability of a zero or first order local optimization technique by improving the contours of any associated cost function.  The natural evolution of this idea - <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html">PCA sphering</a> - can help even further improve the nature of a cost function, allowing for even easier learning.</p>
 </div>
 </div>
 </div>
@@ -12734,7 +12734,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>While there is nothing preventing us from applying standard normalization or PCA-based sphereing to image-based data, doing so <em>destroys the natural spatial-correlation of image-based data</em> and thus much of the <em>edge information</em> in an image.  To get a sense of this we show the result of each input-normalization procedure applied to a large set of handwritten digits from the MNIST dataset - a random subset of which are shown below.</p>
+<p>While there is nothing preventing us from applying standard normalization or PCA-based sphering to image-based data, doing so <em>destroys the natural spatial-correlation of image-based data</em> and thus much of the <em>edge information</em> in an image.  To get a sense of this we show the result of each input-normalization procedure applied to a large set of handwritten digits from the MNIST dataset - a random subset of which are shown below.</p>
 </div>
 </div>
 </div>
@@ -12757,10 +12757,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="86e30f36-0a24-4da3-af58-f70a4a8597c5"></div>
+<div id="fc7eae04-debe-4408-91dd-b5126d77b624"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#86e30f36-0a24-4da3-af58-f70a4a8597c5');
+var element = $('#fc7eae04-debe-4408-91dd-b5126d77b624');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13570,10 +13570,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="271167b6-d7ed-4a99-b1c2-26c16ad6e736"></div>
+<div id="8595dc7c-cf2c-42d1-a337-e49d55db928c"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#271167b6-d7ed-4a99-b1c2-26c16ad6e736');
+var element = $('#8595dc7c-cf2c-42d1-a337-e49d55db928c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14360,8 +14360,8 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Below we show the result of going one step further and <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html"><em>PCA-sphereing</em></a> this handwritten digit dataset, and plot a random subset of the resulting PCA-sphered data.  Note: these are the same images (transformed by the sphereing process) we showed above.</p>
-<p>Here we can see that PCA-sphereing completely destroys the spatial structure of the original images - none of the original numbers are visible in these transformed versions.  There is little point to using edge-based feature extractors (like a convolutional network) if there are no longer any (useful) edges in our images.</p>
+<p>Below we show the result of going one step further and <a href="https://jermwatt.github.io/machine_learning_refined/notes/9_Feature_engineer_select/9_5_PCA_sphereing.html"><em>PCA-sphering</em></a> this handwritten digit dataset, and plot a random subset of the resulting PCA-sphered data.  Note: these are the same images (transformed by the sphering process) we showed above.</p>
+<p>Here we can see that PCA-sphering completely destroys the spatial structure of the original images - none of the original numbers are visible in these transformed versions.  There is little point to using edge-based feature extractors (like a convolutional network) if there are no longer any (useful) edges in our images.</p>
 </div>
 </div>
 </div>
@@ -14384,10 +14384,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="e9e5e4db-ca6a-4635-841f-d998f23340de"></div>
+<div id="4b2520aa-cb40-422d-8586-1df6ab5a7012"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#e9e5e4db-ca6a-4635-841f-d998f23340de');
+var element = $('#4b2520aa-cb40-422d-8586-1df6ab5a7012');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15175,7 +15175,7 @@ if (IPython.notebook.kernel != null) {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id="PCA-sphereing"></a></p>
-<h2 id="What-went-wrong-with-PCA-sphereing?">What went wrong with PCA-sphereing?<a class="anchor-link" href="#What-went-wrong-with-PCA-sphereing?">¶</a></h2>
+<h2 id="What-went-wrong-with-PCA-sphering?">What went wrong with PCA-sphering?<a class="anchor-link" href="#What-went-wrong-with-PCA-sphering?">¶</a></h2>
 </div>
 </div>
 </div>
@@ -15183,14 +15183,14 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As detailed in the previous Example, in terms of the actions we perform on the data itself with PCA-sphereing (or whitening) we:</p>
+<p>As detailed in the previous Example, in terms of the actions we perform on the data itself with PCA-sphering (or whitening) we:</p>
 <ul>
 <li><p><strong>rotate and reflect</strong> by multiplying the data by $\mathbf{V}^T$ (where $\mathbf{V}$ is the set of eigenvectors of the data's covariance matrix) the data so that its largest orthogonal directions of variance align with the coordinate axes (this is done by the standard PCA transformation)</p>
 </li>
-<li><p><strong>normalize</strong> these coordinate axes by dividing by their individual standard deviations by multiplying the rotated/reflected data by $\mathbf{D}^{-^1/_2}$, the diagonal matrix of inverted square roots of the eigenvalues of the data's covariance matrix (this extra bit of normalization added to the PCA transformation to makes it the PCA-sphereing operation)</p>
+<li><p><strong>normalize</strong> these coordinate axes by dividing by their individual standard deviations by multiplying the rotated/reflected data by $\mathbf{D}^{-^1/_2}$, the diagonal matrix of inverted square roots of the eigenvalues of the data's covariance matrix (this extra bit of normalization added to the PCA transformation to makes it the PCA-sphering operation)</p>
 </li>
 </ul>
-<p>Both of these actions contribute to the destruction of spatial correlation - but it is the <strong>rotation / reflection</strong> component that is by far the greater culprit.  We can get a visceral sense of this fact with our current dataset by simply applying the standard PCA transform - which will rotate / reflect the space so that the largest directions of variance coincide with the coordinate axes - without normalizing the result (which led to the PCA-sphereing result above).</p>
+<p>Both of these actions contribute to the destruction of spatial correlation - but it is the <strong>rotation / reflection</strong> component that is by far the greater culprit.  We can get a visceral sense of this fact with our current dataset by simply applying the standard PCA transform - which will rotate / reflect the space so that the largest directions of variance coincide with the coordinate axes - without normalizing the result (which led to the PCA-sphering result above).</p>
 </div>
 </div>
 </div>
@@ -15199,7 +15199,7 @@ if (IPython.notebook.kernel != null) {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id="ZCA-sphereing"></a></p>
-<h2 id="ZCA-sphereing">ZCA-sphereing<a class="anchor-link" href="#ZCA-sphereing">¶</a></h2>
+<h2 id="ZCA-sphering">ZCA-sphering<a class="anchor-link" href="#ZCA-sphering">¶</a></h2>
 </div>
 </div>
 </div>
@@ -15207,7 +15207,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The rotation / reflection from the PCA transformation utterly destroys the spatial correlation structure of our images, a phenomenon that is true more generally speaking for other image datasets as well.  What can we do if we would still like the added optimization-boosting benefit of PCA-sphereing normalization but do not want to destroy the spatial correlation of our input data by rotating / reflecting it?  Well if indeed the rotation / reflection is producing the greatest challenge in terms of maintaining the spatial correlation of our data, why don't we simply rotate / reflect our dataset back to its original orientation after we finish sphereing it (i.e.,normalizing it along its largest orthogonal directions of variance)?  Since we know that it multiplication by $\mathbf{V}^T$ that produces the original rotation / reflection, multiplying by PCA-sphered data by $\left(\mathbf{V}^T\right)^{-1} = \mathbf{V}^{\,}$ (where the equality follows from the fact that $\mathbf{V}$ is an orthogonal matrix) will return the sphered data to its original orientation in the space.  This is illustrated in the Figure below.</p>
+<p>The rotation / reflection from the PCA transformation utterly destroys the spatial correlation structure of our images, a phenomenon that is true more generally speaking for other image datasets as well.  What can we do if we would still like the added optimization-boosting benefit of PCA-sphering normalization but do not want to destroy the spatial correlation of our input data by rotating / reflecting it?  Well if indeed the rotation / reflection is producing the greatest challenge in terms of maintaining the spatial correlation of our data, why don't we simply rotate / reflect our dataset back to its original orientation after we finish sphering it (i.e.,normalizing it along its largest orthogonal directions of variance)?  Since we know that it multiplication by $\mathbf{V}^T$ that produces the original rotation / reflection, multiplying by PCA-sphered data by $\left(\mathbf{V}^T\right)^{-1} = \mathbf{V}^{\,}$ (where the equality follows from the fact that $\mathbf{V}$ is an orthogonal matrix) will return the sphered data to its original orientation in the space.  This is illustrated in the Figure below.</p>
 </div>
 </div>
 </div>
@@ -15218,7 +15218,7 @@ if (IPython.notebook.kernel != null) {
 <figure>
 <img alt="" height="auto" src="../../images/zca_images/zca_sphereing.png" width="110%"/>
 <figcaption>
-<strong>Figure 2:</strong> <em> ZCA-sphereing illustrated. </em> </figcaption>
+<strong>Figure 2:</strong> <em> ZCA-sphering illustrated. </em> </figcaption>
 </figure>
 </div>
 </div>
@@ -15238,8 +15238,8 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For historical reasons this re-rotated version of our PCA-sphered data is often referred to as <em>Zero-phase Component Analysis (ZCA) sphereing</em>.</p>
-<p>Below we show the result of ZCA-sphereing our dataset.  What a difference!  Indeed it was the rotation/reflection of PCA that destroyed most of the spatial correlation, since these ZCA-sphered images retain much of the spatial correlation present in their original versions.  Now we have the best of both worlds: a global normalization scheme (that will help speed up training) that retains the spatial structure of data leveraged e.g., by edge detectors and convolution operations.</p>
+<p>For historical reasons this re-rotated version of our PCA-sphered data is often referred to as <em>Zero-phase Component Analysis (ZCA) sphering</em>.</p>
+<p>Below we show the result of ZCA-sphering our dataset.  What a difference!  Indeed it was the rotation/reflection of PCA that destroyed most of the spatial correlation, since these ZCA-sphered images retain much of the spatial correlation present in their original versions.  Now we have the best of both worlds: a global normalization scheme (that will help speed up training) that retains the spatial structure of data leveraged e.g., by edge detectors and convolution operations.</p>
 </div>
 </div>
 </div>
@@ -15262,10 +15262,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="9d5dcab2-3a85-442c-bcf7-28414ad5e49f"></div>
+<div id="ed488054-4d06-4a87-b060-b27a470c33d7"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#9d5dcab2-3a85-442c-bcf7-28414ad5e49f');
+var element = $('#ed488054-4d06-4a87-b060-b27a470c33d7');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -16067,10 +16067,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="d18b51a1-281c-4e36-8b68-ec5fc09b20ed"></div>
+<div id="3d1544de-8ac7-4cef-bd3d-22d009173c33"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d18b51a1-281c-4e36-8b68-ec5fc09b20ed');
+var element = $('#3d1544de-8ac7-4cef-bd3d-22d009173c33');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
