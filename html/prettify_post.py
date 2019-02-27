@@ -36,10 +36,13 @@ script_1 = '''
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="../../index.html">Blog</a>
+                        <a href="../../index.html">Home</a>
                     </li>
                     <li>
-                        <a href="https://dgsix.com/team">About</a>
+                        <a href="../../subscribe.html">Subscribe</a>
+                    </li>
+                    <li>
+                        <a href="https://dgsix.com/team">Authors</a>
                     </li>
                     <li>
                         <a href="https://dgsix.com/contact">Contact</a>

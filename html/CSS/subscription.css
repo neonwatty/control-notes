@@ -9,7 +9,7 @@
 
 
 form {
-  max-width: 840px;
+  max-width: 500px;
   margin: 0 auto;
   font-size: 65%;
   font-family: Lato, 'sans-serif' !important;
@@ -23,7 +23,7 @@ input {
   background-color: white;
   color: #111;
   border: 1px solid #333;
-  width: 58%;
+  width: 50%;
   height: 40px;
   font-size: 1.1em;
   font-weight: 50;
@@ -40,8 +40,8 @@ button {
   margin-left: 10px;
   background-color: #03333C;
   color: white;
-  width: 15%;
-  height: 40px;
+  width: 20%;
+  height: 39px;
   font-size: 1em;
   border-radius: 5px;
  
