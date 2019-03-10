@@ -13272,10 +13272,7 @@ h_{p} = \frac{x_{p-1} + x_{p-2} + \cdots + x_{p-D}}{D}.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The functionality used here (the simple <em>average</em>) can in principle be replaced with any general function $f$ one desires as</p>
-\begin{equation}
-h_{p} = f\left(x_{p-1},x_{p-2},\cdots,x_{p-D}\right).
-\end{equation}<p>However if we swap out the average with something slightly more complicated (relatively speaking) - the <em>linear combination</em> - we would instead compute updates of the form</p>
+<p>The functionality used here (the simple <em>average</em>) can in principle be replaced with any general function one desires.  However if we swap out the average with something just slightly more complicated (relatively speaking) than a straight-up average - a <em>linear combination</em> - we would instead compute updates of the form</p>
 \begin{equation}
 h_{p} = w_1x_{p-1} + w_2x_{p-2} + \cdots + w_{D}x_{p-D}.
 \end{equation}<p>Here the weights $w_1,\,w_2,\,...,w_{D}$ can be set however we please, and if set to $w_d = \frac{1}{D}$ for all $d$ we recover the moving average update above.</p>
@@ -13297,6 +13294,13 @@ h_{p} = w_1x_{p-1} + w_2x_{p-2} + \cdots + w_{D}x_{p-D}.
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-1:---Average-filter"><span style="color:#a50e3e;">Example 1: </span>  Average filter<a class="anchor-link" href="#Example-1:---Average-filter">¶</a></h4>
 </div>
 </div>
 </div>
@@ -13339,10 +13343,10 @@ h_{p} = w_1x_{p-1} + w_2x_{p-2} + \cdots + w_{D}x_{p-D}.
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="5788c939-0d45-4c0a-a7f4-319a6d2b2eb2"></div>
+<div id="d0aa4c0d-d879-4894-bed2-6a4dad52b88a"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#5788c939-0d45-4c0a-a7f4-319a6d2b2eb2');
+var element = $('#d0aa4c0d-d879-4894-bed2-6a4dad52b88a');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14190,6 +14194,13 @@ if (IPython.notebook.kernel != null) {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-2:---Sinc-filter"><span style="color:#a50e3e;">Example 2: </span>  Sinc filter<a class="anchor-link" href="#Example-2:---Sinc-filter">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Other popular choices for weights outside of the average include average cosine and sinc weights.  These arise naturally in the study of <a href="http://sam-koblenski.blogspot.com/2015/09/everyday-dsp-for-programmers-averaging.html">signal processing</a> where they go by names like <a href="https://en.wikipedia.org/wiki/Low-pass_filter">"low pass filtering"</a>.  To create such weights we sample an elementary function, like for example the sinc function shown below for $D=30$, and multiply the resulting weights by windowed portions of our input series precisely as we did with the original moving average weights above.</p>
 </div>
 </div>
@@ -14213,10 +14224,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="cf06c9de-6bf1-482d-ba43-ec1cfdcdba17"></div>
+<div id="402ad093-da2f-4de8-9db7-7b92d0c0a409"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#cf06c9de-6bf1-482d-ba43-ec1cfdcdba17');
+var element = $('#402ad093-da2f-4de8-9db7-7b92d0c0a409');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15072,6 +15083,13 @@ if (IPython.notebook.kernel != null) {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Example-3:---Cosine-filter"><span style="color:#a50e3e;">Example 3: </span>  Cosine filter<a class="anchor-link" href="#Example-3:---Cosine-filter">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>By similarly sampling a cosine we can create cosine filter - whose weights are shown below.</p>
 </div>
 </div>
@@ -15087,10 +15105,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="9908afaa-fc23-485f-84c6-e3f4ef3db0e6"></div>
+<div id="984106cd-c60d-49ef-bc2c-d8e90b7c9b84"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#9908afaa-fc23-485f-84c6-e3f4ef3db0e6');
+var element = $('#984106cd-c60d-49ef-bc2c-d8e90b7c9b84');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
