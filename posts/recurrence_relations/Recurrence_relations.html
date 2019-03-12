@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-<title>Limited memory dynamic systems</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Recurrence relations</title><script src="https://unpkg.com/jupyter-js-widgets@2.0.*/dist/embed.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <style type="text/css">
     /*!
@@ -11744,7 +11744,7 @@ div#notebook {
 <!-- Load mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <!-- MathJax configuration -->
-<meta content="Limited memory dynamic systems" property="og:title"/>
+<meta content="Recurrence relations" property="og:title"/>
 <meta content="https://raw.githubusercontent.com/jermwatt/machine_learning_refined/gh-pages/html/pics/meta.png" property="og:image"/>
 <meta content="https://blog.dgsix.com/posts/recurrence_relations/Recurrence_relations.html" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -11807,16 +11807,10 @@ div#notebook {
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <ul class="nav navbar-nav navbar-right">
 <li>
-<a href="../../index.html">Home</a>
+<a href="../../index.html">Homepage</a>
 </li>
 <li>
 <a href="../../subscribe.html">Subscribe</a>
-</li>
-<li>
-<a href="https://dgsix.com/team">Authors</a>
-</li>
-<li>
-<a href="https://dgsix.com/contact">Contact</a>
 </li>
 </ul>
 </div>
@@ -11849,7 +11843,7 @@ div#notebook {
 </a>
 </div>
 <br/><br/>
-<div style="padding: 0px;">Limited memory dynamic systems</div>
+<div style="padding: 0px;">Recurrence relations</div>
 <svg height="15" width="80">
 <rect height="15" style="fill:#0085A1; stroke-width:0; stroke:rgb(0,0,0)" width="80"></rect>
 </svg>
@@ -11869,7 +11863,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this post we build on prior posts on <a href="https://blog.dgsix.com/posts/one_dimensional_convolutions/One_dimensional_convolutions.html">one-dimensional convolutions</a> and <a href="https://blog.dgsix.com/posts/moving_averages/Moving_averages.html">moving averages</a> and discuss examples of common <em>recursive</em> fixed order dynamic systems.  Such systems are used throughout various science and engineering disciplines and go by many names, including <em>recurrence relations</em> (of course), <em>difference equations</em>, <em>limited memory dynamical systems</em>, <em>chaotic systems</em>, and <em>Markov Chains</em> to name just a few.</p>
+<p>In this post we build on prior post on <a href="https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html">dynamic systems with limited memory</a> and discuss examples of common <em>recursive</em> dynamic systems.  Such systems are used throughout various science and engineering disciplines and go by many names, including <em>recurrence relations</em> (of course), <em>difference equations</em>, <em>limited memory dynamical systems</em>, and <em>chaotic systems</em>, to name just a few.</p>
 <p>You can skip around this document to particular subsections via the hyperlinks below.</p>
 <ul>
 <li><a href="#recurrence-relations">What is a recurrence relation?</a></li>
@@ -11900,7 +11894,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The kind of simple dynamic systems we have seen take in an input sequence $x_1,\,x_2,\,...,x_P$ and produce a corresponding output sequence $h_1,\,h_2,\,...,h_P$.  As we have seen, this output sequence is some filtered (e.g., smoothed) version of the original input, like the moving average.  In general at each step we transform a window of $D$ consecutive elements of the input as</p>
+<p>A <a href="https://blog.dgsix.com/posts/dyamic_systems_limited_memory/dyamic_systems_limited_memory.html">dynamic system with limited memory</a> takes in an input sequence $x_1,\,x_2,\,...,x_P$ and produces a corresponding output sequence $h_1,\,h_2,\,...,h_P$.  As we have seen, this output sequence is some filtered (e.g., <a href="https://blog.dgsix.com/posts/moving_averages/Moving_averages.html">smoothed</a>) version of the original input, like the moving average.  In general at each step we transform a window of $D$ consecutive elements of the input as</p>
 <p>\begin{equation}
 h_{p} = f\left(x_{p-1},x_{p-2},\cdots,x_{p-D}\right)
 \end{equation}</p>
@@ -11990,10 +11984,10 @@ x_{p} = w_0 + w_1x_{p-1}.
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="f0509d46-42d5-49fa-8da3-de842c163470"></div>
+<div id="bedcb9da-0b02-4f82-acf1-1715787d8904"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f0509d46-42d5-49fa-8da3-de842c163470');
+var element = $('#bedcb9da-0b02-4f82-acf1-1715787d8904');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -12882,10 +12876,10 @@ x_{p} = w_0 + w_1x_{p-1} + w_2x_{p-2} + \cdots + w_{D}x_{p- D} + \epsilon
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="a6507296-f72d-49d7-88a3-2672c6b91bd3"></div>
+<div id="3e77d3ef-4689-45d4-b8cd-000f331fe741"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#a6507296-f72d-49d7-88a3-2672c6b91bd3');
+var element = $('#3e77d3ef-4689-45d4-b8cd-000f331fe741');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -13719,10 +13713,10 @@ x_{p} = w x_{p-1}\left(1 - x_{p-1} \right).
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="584de817-7eb0-43c2-a870-6bb99c269401"></div>
+<div id="62a6670b-e39a-4347-a8a8-f2f75d856ca8"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#584de817-7eb0-43c2-a870-6bb99c269401');
+var element = $('#62a6670b-e39a-4347-a8a8-f2f75d856ca8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14524,10 +14518,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="f45e5575-cd85-45bd-8f23-77d1829067d7"></div>
+<div id="dccb1b10-78f3-41b6-b411-00fd2b68e7d5"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f45e5575-cd85-45bd-8f23-77d1829067d7');
+var element = $('#dccb1b10-78f3-41b6-b411-00fd2b68e7d5');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15348,7 +15342,7 @@ x_{p} = x_{p-1} + x_{p-2}
 <div class="text_cell_render border-box-sizing rendered_html">
 <figure>
 <p>
-<img alt="" height="40%" src="../../images/recurrence_relations/fibonacci_sequence.png" width="40%"/>
+<img alt="" height="40%" src="images/fibonacci_sequence.png" width="40%"/>
 </p>
 <figcaption> <strong>Figure 1:</strong> <em> The geometry of the Fibonachi defines the so-called 'golden spiral'.
 
