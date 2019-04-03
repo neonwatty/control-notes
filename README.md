@@ -18,7 +18,7 @@ Python demos and Jupyter notebooks associated with blogposts on [blog.dgsix.com]
 ---|---|---
 [Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)| &nbsp;
 
-<br><br><br><br>
+<br><br><br>
 
 
 ### Data preprocessing and feature normalization
@@ -27,7 +27,7 @@ Python demos and Jupyter notebooks associated with blogposts on [blog.dgsix.com]
 ---|---|---
 [ZCA sphereing](https://blog.dgsix.com/posts/zca_sphereing/ZCA_Sphereing.html) | &nbsp; | &nbsp;
  
-
+<br><br><br>
 ## Installation
 [(Back to top)](#table-of-contents)
 
