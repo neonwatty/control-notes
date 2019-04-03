@@ -83,9 +83,9 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 <br><br>
 
-<img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> | <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="300px" height="auto"> 
----|---|---
-[Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html) | [Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
+<img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="300px" height="auto"> 
+---|---
+[Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
 
 <br><br>
 
