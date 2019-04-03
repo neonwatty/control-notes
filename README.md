@@ -76,21 +76,27 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 ### Dynamic Systems
 
-
 <img src="posts/moving_averages/images/moving_avg.png" width="300px" height="auto"> | <img src="posts/one_dimensional_convolutions/images/conv.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> 
 ---|---|---
 [Moving averages](https://blog.dgsix.com/posts/moving_averages/Moving_averages.html) | [1D convolutions](https://blog.dgsix.com/posts/one_dimensional_convolutions/One_dimensional_convolutions.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
 
 <br><br>
 
-<img src="posts/markov_chains/images/markov.png" width="450px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="450px" height="auto"> 
----|---
-[Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
+<img src="posts/markov_chains/images/markov.png" width="450px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="450px" height="auto"> |
+---|---|---
+[Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)|
 
-<br><br>
+<br><br><br><br>
 
 
+### Data preprocessing and feature normalization
 
+posts/
+zca_sphereing
+/
+images
+/
+ZCA.png
 
  
 
