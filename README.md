@@ -3,38 +3,6 @@
 Python demos and Jupyter notebooks associated with blogposts on [blog.dgsix.com](https://blog.dgsix.com) 
 
 
-# Table of contents
-
-- [What is in the repo?](#what-is-in-the-repo)
-- [Notes](#notes)
-- [Installation](#installation)
-- [Creators](#creators)
-
-<br><br><br>
-
-
-## What is in the repo?
-
-[(Back to top)](#table-of-contents)
-
-### 1. Interatcive html notes
-These notes - listed [here](#notes) - served as an early draft for the second edition of the text. You can also find them in the `notes` directory. Here's an example: <br><br>
-
-<p align="center"><img src="html/gifs/html.gif" width="70%" height="auto"></p>
-<br>
-
-### 2. Accompanying Jupyter notebooks (used to create the html notes) 
-Feel free to take a peek under the hood, tweak the models, explore new datasets, etc. Here's an example: <br><br>
-
-<p align="center"><img src="html/gifs/ipynb.gif" width="65%" height="auto"></p>
-<br>
-
-### 3. Coding exercises (1st edition)
-
-In the `exercises` directory you can find starting wrappers for coding exercises from the first edition of the text in `Python` and `MATLAB`. Exercises for the 2nd edition will be added soon.
-<br><br><br>
-
-
 ## Blogpost topics
 [(Back to top)](#table-of-contents)
 
@@ -58,9 +26,6 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 <img src="posts/zca_sphereing/images/ZCA.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto">
 ---|---|---
 [ZCA sphereing](https://blog.dgsix.com/posts/zca_sphereing/ZCA_Sphereing.html) | &nbsp; | &nbsp;
-
-
-
  
 
 ## Installation
