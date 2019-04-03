@@ -1,13 +1,6 @@
-# Degree Six | Blog [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Refined:%20notes,%20exercises,%20and%20Jupyter%20notebooks%20&url=https://github.com/jermwatt/dgsix_blog)
+# Degree Six | Blog
 
 Python demos and Jupyter notebooks associated with blogposts on [blog.dgsix.com](https://blog.dgsix.com) 
-
-<img align="right" src="html/gifs/book.png" height="420">
-<strong>Publisher:</strong> Cambridge University Press <br><br>
-<strong>First edition:</strong> November 2016 <br>
-<strong>Second edition:</strong> January 2020 (expected) <br><br><br>
-
-
 
 
 # Table of contents
@@ -111,7 +104,6 @@ With minor adjustment users can also run these notebooks using the GPU/TPU exten
 
 ## Creators 
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#table-of-contents) 
 
 This repository is in active development by [Jeremy Watt](mailto:jeremy@dgsix.com) and [Reza Borhani](mailto:reza@dgsix.com) - please do not hesitate to reach out with comments, questions, typos, etc.
--
