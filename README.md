@@ -91,9 +91,9 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 ### Data preprocessing and feature normalization
 
-<img src="posts/zca_sphereing/images/ZCA.png" width="300px" height="auto"> | <img src="posts/zca_sphereing/images/ZCA.png" width="300px" height="auto"> | <img src="posts/zca_sphereing/images/ZCA.png" width="300px" height="auto">
+<img src="posts/zca_sphereing/images/ZCA.png" width="300px" height="auto"> | <img src="https://fbs8083.files.wordpress.com/2019/01/blank-white-square-thumbnail.jpg" width="300px" height="auto"> | <img src="https://fbs8083.files.wordpress.com/2019/01/blank-white-square-thumbnail.jpg" width="300px" height="auto">
 ---|---|---
-[Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)| &nbsp;
+[ZCA sphereing](https://blog.dgsix.com/posts/zca_sphereing/ZCA_Sphereing.html) | &nbsp; | &nbsp;
 
 
 
