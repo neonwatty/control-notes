@@ -28,63 +28,7 @@ Python demos and Jupyter notebooks associated with blogposts on [blog.dgsix.com]
 
 Many machine learning concepts - like convergence of an algorithm, evolution of a model from an underfitting one all the way to an overfitting model, etc. - can be illustrated and intuited best using animations (as opposed to static figures). You'll find a large number of both images and animated videos here - which you can modify yourself too via the raw Jupyter notebook version of these notes.  Here are just a few examples:<br><br>
 
-<img src="html/gifs/cross_validation_regression.gif" width="300px" height="auto"> | <img src="html/gifs/cross_validation_two_class.gif" width="300px" height="auto"> | <img src="html/gifs/cross_validation_multiclass.gif" width="300px" height="auto"> 
----|---|---
-Cross-validation (regression) | Cross-validation (two-class classification) | Cross-validation (multi-class classification)
 
-<br><br>
-
-<img src="html/gifs/Kmeans.gif" width="300px" height="auto"> | <img src="html/gifs/feature_normalization.gif" width="300px" height="auto"> | <img src="html/gifs/normalized_gradient_descent.gif" width="300px" height="auto"> 
----|---|---
-K-means clustering | Feature normalization| Normalized gradient descent
-
-<br><br>
-
-<img src="html/gifs/Rotation.gif" width="300px" height="auto"> | <img src="html/gifs/convexification.gif" width="300px" height="auto"> | <img src="html/gifs/Nurgetson.gif" width="300px" height="auto"> 
----|---|---
-Rotation | Convexification | Dogification!
-
-<br><br>
-
-<img src="html/gifs/nonlinear_transformation.gif" width="300px" height="auto"> | <img src="html/gifs/weighted_classification.gif" width="300px" height="auto"> | <img src="html/gifs/moving_average.gif" width="300px" height="auto"> 
----|---|---
-A nonlinear transformation | Weighted classification | The moving average
-
-<br><br>
-
-<img src="html/gifs/batch_normalization.gif" width="450px" height="auto"> | <img src="html/gifs/logistic_regression.gif" width="450px" height="auto"> 
----|---
-Batch normalization | Logistic regression
-
-<br><br>
-
-<img src="html/gifs/poly_vs_NN_vs_trees_regression.gif" width="450px" height="auto"> | <img src="html/gifs/poly_vs_NN_vs_trees_classification.gif" width="450px" height="auto"> 
----|---
-Polynomials vs. NNs vs. Trees (regression) | Polynomials vs. NNs vs. Trees (classification)
-
-<br><br>
-
-<img src="html/gifs/steplength_1D.gif" width="450px" height="auto"> | <img src="html/gifs/steplength_2D.gif" width="450px" height="auto"> 
----|---
-Changing gradient descent's steplength (1d) | Changing gradient descent's steplength (2d)
-
-<br><br>
-
-<img src="html/gifs/convex_combination.gif" width="450px" height="auto"> | <img src="html/gifs/taylor_series.gif" width="450px" height="auto"> 
----|---
-Convex combination of two functions | Taylor series approximation
-
-<br><br>
-
-<img src="html/gifs/feature_selection.gif" width="450px" height="auto"> | <img src="html/gifs/secant_2d.gif" width="450px" height="auto"> 
----|---
-Feature selection via regularization | Secant planes
-
-<br><br>
-
-<img src="html/gifs/function_approx_NN.gif" width="450px" height="auto"> | <img src="html/gifs/regression_tree.gif" width="450px" height="auto"> 
----|---
-Function approximation with a neural network | A regression tree
 
 <br><br><br>
 ## What is in this book?
@@ -150,6 +94,19 @@ In this post we introduce the basic version of a stochastic recurrent dynamic sy
 <br>
 
 [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)    
+
+
+<img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> 
+---|---|---
+[Cross-validation (regression)](https://google.com) | Cross-validation (two-class classification) | Cross-validation (multi-class classification)
+
+<br><br>
+
+<img src="html/gifs/Kmeans.gif" width="300px" height="auto"> | <img src="html/gifs/feature_normalization.gif" width="300px" height="auto"> | <img src="html/gifs/normalized_gradient_descent.gif" width="300px" height="auto"> 
+---|---|---
+K-means clustering | Feature normalization| Normalized gradient descent
+
+<br><br>
 
 
  
