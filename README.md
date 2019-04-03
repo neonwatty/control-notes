@@ -77,28 +77,9 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 ### Dynamic Systems
 
 
-<img align="right" src="posts/dynamic_systems_limited_memory/images/ds.png" height="200">
-
-[Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html) 
-<br>
-In this post we pick up on our previous conversation on one dimensional convolutions, discussing their generalization called dynamic systems with limited memory.
-
-<br>
-
-<img align="right" src="posts/markov_chains/images/markov.png" height="200">
-
-[Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html)  
-<br>
-In this post we introduce the basic version of a stochastic recurrent dynamic system, called a Markov chain, via its most popular application as a model of written text.
-
-<br>
-
-[Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)    
-
-
-<img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> 
+<img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> | <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="300px" height="auto"> 
 ---|---|---
-[Cross-validation (regression)](https://google.com) | Cross-validation (two-class classification) | Cross-validation (multi-class classification)
+[Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html) | [Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
 
 <br><br>
 
