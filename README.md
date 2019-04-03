@@ -132,7 +132,10 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 ### Dynamic Systems
 
+<img align="right" src="html/gifs/book.png" height="420">
 [Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html)  
+
+
 [Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html)  
 [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)    
 
