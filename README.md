@@ -132,7 +132,8 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 ### Dynamic Systems
 
-<img align="right" src="html/gifs/book.png" height="420">
+<img align="right" src="posts/markov_chains/images/markov.png" height="100">
+
 [Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html)  
 
 
