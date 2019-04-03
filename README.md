@@ -132,10 +132,13 @@ In the `exercises` directory you can find starting wrappers for coding exercises
 
 ### Dynamic Systems
 
-<img align="right" src="posts/markov_chains/images/markov.png" height="100">
 
-[Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html)  
+<img align="right" src="posts/dynamic_systems_limited_memory/images/ds.png" height="200">
 
+[Dynamic systems with limited memory](https://blog.dgsix.com/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html) 
+In this post we pick up on our previous conversation on one dimensional convolutions, discussing their generalization called dynamic systems with limited memory.
+
+<img align="right" src="posts/markov_chains/images/markov.png" height="200">
 
 [Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html)  
 [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)    
