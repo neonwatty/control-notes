@@ -1,4 +1,6 @@
-# Machine Learning Refined: Notes, Exercises, and Jupyter notebooks [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Refined:%20notes,%20exercises,%20and%20Jupyter%20notebooks%20&url=https://github.com/jermwatt/machine_learning_refined)
+# Degree Six | Blog [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Machine%20Learning%20Refined:%20notes,%20exercises,%20and%20Jupyter%20notebooks%20&url=https://github.com/jermwatt/dgsix_blog)
+
+Python demos and Jupyter notebooks used in our blogposts on [blog.dgsix.com](https://blog.dgsix.com) 
 
 <img align="right" src="html/gifs/book.png" height="420">
 <strong>Publisher:</strong> Cambridge University Press <br><br>
