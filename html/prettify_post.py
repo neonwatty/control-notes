@@ -80,16 +80,19 @@ script_1 = '''
 </a>
 </div>
 
+<div class="logo-share">
+<!-- github -->
+<a href="https://github.com/jermwatt/dgsix_blog" target="_blank">
+<img height="18" onmouseout="this.src='../../html/images/github_off.png';" onmouseover="this.src='../../html/images/github_on.png';" src="../../html/images/github_off.png" width="18"/>
+</a>
+</div>
+
 <br><br>
 	<div style="padding: 0px;">'''+ page_title +'''</div>
 <svg width="80" height="15">
   <rect width="80" height="15" style="fill:#0085A1; stroke-width:0; stroke:rgb(0,0,0)" /> 
 </svg>	
 </div>
-
-
-
-
 '''
 
 # parse script as BeautifulSoup object
