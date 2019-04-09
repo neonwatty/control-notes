@@ -7,13 +7,13 @@
 
 <img src="posts/moving_averages/images/moving_avg.png" width="300px" height="auto"> | <img src="posts/one_dimensional_convolutions/images/conv.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> 
 ---|---|---
-[Moving averages](https://jermwatt.github.io/control-notes/posts/moving_averages/Moving_averages.html) | [1D convolutions](https://blog.dgsix.com/posts/one_dimensional_convolutions/One_dimensional_convolutions.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
+[Moving averages](https://jermwatt.github.io/control-notes/posts/moving_averages/Moving_averages.html) | [1D convolutions](https://jermwatt.github.io/control-notes/posts/one_dimensional_convolutions/One_dimensional_convolutions.html) | [Dynamic systems with unlimited memory](https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
 
 <br><br>
 
 <img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto">
 ---|---|---
-[Markov chains and stochastic recurrence relations](https://blog.dgsix.com/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://blog.dgsix.com/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)| &nbsp;
+[Markov chains and stochastic recurrence relations](https://jermwatt.github.io/control-notes/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)| &nbsp;
 
 <br><br><br>
 
@@ -22,7 +22,7 @@
 
 <img src="posts/zca_sphereing/images/ZCA.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto">
 ---|---|---
-[ZCA sphereing](https://blog.dgsix.com/posts/zca_sphereing/ZCA_Sphereing.html) | &nbsp; | &nbsp;
+[ZCA sphereing](https://jermwatt.github.io/control-notes/posts/zca_sphereing/ZCA_Sphereing.html) | &nbsp; | &nbsp;
  
 <br><br><br>
 ## Installation
