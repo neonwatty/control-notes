@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 			*,
 *:before,
 *:after {
+
+
+
   border: none;
   padding: 0;
 
@@ -9,7 +13,7 @@
 
 
 form {
-  max-width: 500px;
+  max-width: 840px;
   margin: 0 auto;
   font-size: 65%;
   font-family: Lato, 'sans-serif' !important;
@@ -17,43 +21,39 @@ form {
 }
 
 input {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
   float: left;
   background-color: white;
   color: #111;
   border: 1px solid #333;
-  width: 50%;
+  width: 58%;
   height: 40px;
-  font-size: 1.1em;
-  font-weight: 50;
+  font-size: 1.5em;
   text-align: center;
   border-radius: 5px;
   margin-left: 100px;
 }
 
 button {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 600;
   float: left;
   border: 4px;
   margin-left: 10px;
-  background-color: #03333C;
+  background-color: #ff7e70;
   color: white;
-  width: 20%;
-  height: 39px;
-  font-size: 1em;
+  width: 15%;
+  height: 42px;
+  font-size: 1.5em;
   border-radius: 5px;
  
 
 }
 
 button:hover {
-  background-color: #0085A1;
+  background-color: #444;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+
 
 
 

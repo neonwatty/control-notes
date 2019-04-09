@@ -21,7 +21,7 @@
 }
 
 .logo-share { /* social media logos */
-	float:  left;
+	float: left;
 	width: 30px; 
 	height:30px;
 	position: relative;
@@ -30,13 +30,12 @@
 }
 
 .page-title { /* page title */
-  color: #333;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-   font-weight:800;
-  font-size: 30pt;
+  color: red !important;
+  font-family: 'Alegreya sans', sans-serif;
+  font-size: 32pt;
   margin-right: 240px;
   margin-left: 240px;
-  margin-top: 60px;
+  margin-top: 120px;
   margin-bottom: 0px;
   text-align: center;
   line-height: 65px;
@@ -197,9 +196,9 @@ div.output_area {
 
 div.text_cell_render { /* markdown cell */
   color: #515151;
-  font-family: 'Alegreya sans', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
   margin-left: 0px;  /* previously 72  */
   margin-right: 78px; /* previously 150  */
   line-height: 1.5em;
@@ -474,6 +473,70 @@ pre { /* comments */
 .mark-grey {
   background-color: #ededed; /* used in 1.1 can be removed */
    padding: 0px;
+}
+
+
+
+
+body {
+  background: #fff;
+  font-size: 12.5% !important;
+}
+
+/* GENERAL BUTTON STYLING */
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  background: none;
+  border: 2px solid #222;
+  border-radius: 2px;
+  color: #222;
+  display: block;
+  font-size: .4em;
+  font-weight: bold;
+  margin: 0em auto;
+  padding: .1em 3em;
+  position: relative;
+}
+
+button::before,
+button::after {
+  background: #222;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.btn-star {
+  overflow: hidden;
+}
+
+.btn-star::after {
+  /*background-color: #f00;*/
+  height: 100%;
+  left: -35%;
+  top: 0;
+  transform: skew(50deg);
+  transition-duration: 0.6s;
+  transform-origin: top left;
+  width: 0;
+}
+
+.btn-star:hover:after {
+  height: 100%;
+  width: 135%;
 }
 
 /*
