@@ -1,9 +1,6 @@
-# Degree Six | Blog
+# A collection of notebooks on Dynamic Systems, Automatic Control, and Reinforcement Learning
 
-Python demos and Jupyter notebooks associated with blogposts on [blog.dgsix.com](https://blog.dgsix.com) 
-
-
-## Blogpost topics
+## Current topics
 [(Back to top)](#table-of-contents)
 
 ### Dynamic Systems
