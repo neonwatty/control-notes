@@ -11,12 +11,14 @@
 
 <br><br>
 
-<img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto">
+<img src="posts/markov_chains/images/markov.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_unlimited_memory/images/riemann_v2.png" width="300px" height="auto"> | <img src="posts/recurrence_relations/images/fibonacci_sequence.png" width="300px" height="auto">
 ---|---|---
-[Markov chains and stochastic recurrence relations](https://jermwatt.github.io/control-notes/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)| &nbsp;
+[Markov chains and stochastic recurrence relations](https://jermwatt.github.io/control-notes/posts/markov_chains/Markov_chains.html) | [Dynamic systems with unlimited memory](https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)|   [Recurrence relations](https://jermwatt.github.io/control-notes/posts/recurrence_relations/Recurrence_relations.html)|  &nbsp;
+
 
 <br><br><br>
 
+[comment]: <> (https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png)
 
 ### Data preprocessing and feature normalization
 
