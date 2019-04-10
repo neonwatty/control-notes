@@ -7,7 +7,7 @@
 
 <img src="posts/moving_averages/images/moving_avg.png" width="300px" height="auto"> | <img src="posts/one_dimensional_convolutions/images/conv.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> 
 ---|---|---
-[Moving averages](https://jermwatt.github.io/control-notes/posts/moving_averages/Moving_averages.html) | [1D convolutions](https://jermwatt.github.io/control-notes/posts/one_dimensional_convolutions/One_dimensional_convolutions.html) | [Dynamic systems with unlimited memory](https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html)
+[Moving averages](https://jermwatt.github.io/control-notes/posts/moving_averages/Moving_averages.html) | [1D convolutions](https://jermwatt.github.io/control-notes/posts/one_dimensional_convolutions/One_dimensional_convolutions.html) | [Dynamic systems with limited memory](https://jermwatt.github.io/control-notes/posts/dynamic_systems_limited_memory/dynamic_systems_limited_memory.html)
 
 <br><br>
 
