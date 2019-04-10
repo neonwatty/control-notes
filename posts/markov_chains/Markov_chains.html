@@ -13961,22 +13961,16 @@ g down the broad, sunlit roadway, between the tall buildings on each side.  i tu
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In discussing Markov chains its pretty commonplace to represent each fundamental unit (that is each word or character) by a numerical value.  For example if we were working on the character level we could represent each character by a unique integer - this is often called "token-izing" the characters of a text (we did this in our implementation above).  Another common numerical translation is the "one-hot encoding" scheme where we translated each character into a unique standard basis vector, as shown for a few characters in the Figure 1 below.</p>
+<p>In discussing Markov chains its pretty commonplace to represent each fundamental unit (that is each word or character) by a numerical value.  For example if we were working on the character level we could represent each character by a unique integer - this is often called "token-izing" the characters of a text (we did this in our implementation above).  Another common numerical translation is the "one-hot encoding" scheme where we translated each character's unique token into a standard basis vector, as shown for a few characters below.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<figure>
-<p>
-<img alt="" height="70%" src="images/char_one_hot_encoding.png" width="70%"/>
-</p>
-<figcaption> <strong>Figure 1:</strong> <em> 
-In 'one-hot encoding' characters of a text we translate each into a unique standard basis vector.  
-</em>
-</figcaption>
-</figure>
+\begin{equation}
+a \longrightarrow 1 \longrightarrow \begin{bmatrix} 1 \\ 0 \\ 0  \\ \vdots \\ 0 \end{bmatrix} \,\,\,\,  \,\,\,\,  \,\,\,\, b \longrightarrow 2 \longrightarrow \begin{bmatrix} 0 \\ 1 \\ 0  \\ \vdots \\ 0 \end{bmatrix} \,\,\,\,  \,\,\,\,  \,\,\,\, c \longrightarrow 3 \longrightarrow \begin{bmatrix} 0 \\ 0 \\ 1  \\ \vdots \\ 0 \end{bmatrix}
+\end{equation}
 </div>
 </div>
 </div>
@@ -13998,10 +13992,10 @@ In 'one-hot encoding' characters of a text we translate each into a unique stand
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="d27c06d1-058c-4418-aacf-104e3f8d5fb8"></div>
+<div id="c513eb07-1160-4bbc-a159-532ca063c252"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#d27c06d1-058c-4418-aacf-104e3f8d5fb8');
+var element = $('#c513eb07-1160-4bbc-a159-532ca063c252');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14787,16 +14781,38 @@ if (IPython.notebook.kernel != null) {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we <em>one-hot encode</em> characters (or words) we can pull apart we can pull apart the Markov update formula in Equation (6) quite nicely.  First, note that in order to compute a normalized histogram we can simply compute the average of $D$ consecutive characters.  If we call $\mathbf{x}_p$ the one-hot encoded version of the character $x_p$, then we can express a normalized histogram as</p>
+<p>If we <em>one-hot encode</em> characters (or words) we can pull apart we can pull apart the Markov update formula in Equation (6) quite nicely.  First if denote by $x_p$ the integer token of the $p^{th}$ character in a text, we produce its equivalent one-hot encoded vector $\text{x}_p$ via an $\text{encoder}$ function</p>
+\begin{equation}
+\mathbf{x}_p = \text{encoder}\left(x_p\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we suppose that we have one-hot encoded all characters of a text, then note that in order to compute a normalized histogram we can simply compute the average of $D$ consecutive vectors.  If we call $\mathbf{x}_p$ the one-hot encoded version of the character $x_p$, then we can express a normalized histogram as</p>
 \begin{equation}
 \mathbf{z}_p = \frac{\mathbf{x}_{p-1}+\mathbf{x}_{p-2} +\,...\,+\mathbf{x}_{p-D}}{D}.
 \end{equation}<p>This we can classify as a standard <a href="https://jermwatt.github.io/control-notes/posts/moving_averages/Moving_averages.html">moving average process</a>.  To select the next most probable word we then determine the index of the <em>largest</em> value from this average - which we can express as</p>
 \begin{equation}
 h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right)
-\end{equation}<p>where here the $\text{argmax}$ returns $h_p$ the index of the largest entry of the histogram $\mathbf{z}_p$ (we can also one-hot encode the index $h_p$ as $\mathbf{h}_p$, a standard basis vector with a $1$ at $h_p$ and $0$ everywhere else so that we only deal with one-hot encoded vectors.  In any case, all together then</p>
+\end{equation}<p>where here the $\text{argmax}$ returns $h_p$ the index of the largest entry of the histogram $\mathbf{z}_p$.  If we want our prediction in one-hot encoded form we simply pass the index above through our encoder function as</p>
 \begin{equation}
-\,\,\,  \,\,\,  \,\,\, \,\,\,\,  \,\,\,\,\, \,\,\,  \mathbf{z}_p = \frac{\mathbf{x}_{p-1}+\mathbf{x}_{p-2} +\,...\,+\mathbf{x}_{p-D}}{D}\\
-h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right).
+\mathbf{h}_p = \text{encoder}\left(h_p\right).
+\end{equation}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>ll together then a Markov prediction given a window of $D$ one-hot encoded characters can be written nicely as</p>
+\begin{equation}
+\,\,\,  \,\,\,  \,\,\, \,\,\,\,  \,\,\,\,\, \,\,\,\,\,  \,
+\mathbf{z}_p = \frac{\mathbf{x}_{p-1}+\mathbf{x}_{p-2} +\,...\,+\mathbf{x}_{p-D}}{D}\\
+h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right)\\
+\,  \mathbf{h}_p = \text{encoder}\left(h_p\right).
 \end{equation}<p>we can see that - in terms of basic components - a Markov chain is just a simple tweak on a standard moving average process</p>
 </div>
 </div>
@@ -14838,10 +14854,10 @@ h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right).
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="59eeefa4-56f0-43e8-9fb2-654aeede2929"></div>
+<div id="c3dab41f-8446-4fc2-b2b3-842d0472c36f"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#59eeefa4-56f0-43e8-9fb2-654aeede2929');
+var element = $('#c3dab41f-8446-4fc2-b2b3-842d0472c36f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 

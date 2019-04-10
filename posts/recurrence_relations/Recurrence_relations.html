@@ -13284,7 +13284,7 @@ x_{p} = f\left(x_{p-1},x_{p-2},...,x_{p-D}\right).
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 \begin{equation}
-x_{p} = w_0 + w_1x_{p-1}.
+x_{p} = w_0 + x_{p-1}w_1.
 \end{equation}
 </div>
 </div>
@@ -13314,10 +13314,10 @@ x_{p} = w_0 + w_1x_{p-1}.
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="0994a646-1a87-4f07-94ad-651d3282fbaf"></div>
+<div id="6bd13b85-6438-4733-bb5d-fbcf762f8b75"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#0994a646-1a87-4f07-94ad-651d3282fbaf');
+var element = $('#6bd13b85-6438-4733-bb5d-fbcf762f8b75');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14108,14 +14108,14 @@ if (IPython.notebook.kernel != null) {
 \begin{array}
 \
 x_1 = \gamma \\
-x_{p} = w_1x_{p-1}.
+x_{p} = x_{p-1}w_1.
 \end{array}
 \end{equation}<p>Then if we roll back the update step - replacing $x_{p-1}$ with its update - we can write the update step above for $x_p$ as</p>
 \begin{equation}
-x_{p} = w_1x_{p-1} = w_1 \cdot w_1 x_{p-2} = w_1^2x_{p-1}.
+x_{p} = x_{p-1}w_1 = w_1 \cdot x_{p-2} w_1  = x_{p-1}w_1^2.
 \end{equation}<p>If we continue, substituting in the update formula for $x_{p-2}$ and then likewise $x_{p-3}$ and so forth we can write the formula above equivalently as</p>
 \begin{equation}
-x_{p} = w_1^{\,p-1} \,x_{1}^{\,}
+x_{p} = \,x_{1}^{\,} w_1^{\,p-1}
 \end{equation}<p>which does indeed show how the sequence behaves exponentially depending on the coefficient value $w_1$.  Setting $w_0 \neq 0$ one can show a similar exponential relationship throughout the sequence by similarly rolling back to the initial condition.</p>
 </div>
 </div>
@@ -14132,7 +14132,7 @@ x_{p} = w_1^{\,p-1} \,x_{1}^{\,}
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>More generally the formula for compound interest (when none of the principal or interest is repaid at each period) on an initial loan of $x_1$ dollars is a version of the linear growth model above</p>
 \begin{equation}
-x_{p} = \left(1 + \text{interest rate}\right)x_{p-1}.
+x_{p} = x_{p-1}\left(1 + \text{interest rate}\right).
 \end{equation}<p>In other words, it is the exponential growth model with $w_0 = 0$ and $w_1 = \left(1 + \text{interest rate}\right)$.</p>
 </div>
 </div>
@@ -14143,7 +14143,7 @@ x_{p} = \left(1 + \text{interest rate}\right)x_{p-1}.
 <p>This sort of model is also used as a simple model for uncapped <em>population growth</em>.  For example, suppose a single species of creature (bacteria, bunny rabbits, humans, whatever) live alone on a planet that has an infinite amount of space, resources, etc.,  Suppose at the start of the universe there are $2$ creatures, and after each period of time (e.g., a day) they reproduce at a rate of $100\%$.  Since there are infinite resources in this universe they can go on reproducing forever, reproducing at an exponential rate.  This scenario can also be interpreted as the example in the left panel above (where $x_1 = 2$ denotes the initial number of creatures and $w_1 = 2$ the growth rate).</p>
 <p>Just like compound interest, the uncapped population growth model falls into the same kind of framework as we saw above as</p>
 \begin{equation}
-x_{p} = \left(\text{growth rate per period}\right)x_{p-1}.
+x_{p} = x_{p-1}\left(\text{growth rate per period}\right).
 \end{equation}<p>In other words, it is the exponential growth model with $w_0 = 0$ and $w_1 = \left(1 + \text{growth rate per period}\right)$.</p>
 </div>
 </div>
@@ -14169,7 +14169,7 @@ x_{p} = \left(\text{growth rate per period}\right)x_{p-1}.
 \begin{array}
 \
 x_1 = \gamma_1 \,\,\,\,\, x_2 = \gamma_2 \,\,\,\,\, \cdots \,\,\,\,\, x_{D} = \gamma_{D} \\
-x_{p} = w_0 + w_1x_{p-1} + w_2x_{p-2} + \cdots + w_{D}x_{p- D} + \epsilon
+x_{p} = w_0 + x_{p-1}w_1 + x_{p-2}w_2 + \cdots + x_{p- D}w_{D} + \epsilon
 \end{array}
 \end{equation}
 </div>
@@ -14193,10 +14193,10 @@ x_{p} = w_0 + w_1x_{p-1} + w_2x_{p-2} + \cdots + w_{D}x_{p- D} + \epsilon
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="1beb5af7-971f-46d1-8b4d-9a3623b835fd"></div>
+<div id="3f63bea6-237a-4467-a412-5272948b38f8"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#1beb5af7-971f-46d1-8b4d-9a3623b835fd');
+var element = $('#3f63bea6-237a-4467-a412-5272948b38f8');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15000,9 +15000,9 @@ if (IPython.notebook.kernel != null) {
 \begin{array}
 \
 x_1 = \gamma \\
-x_{p} = w x_{p-1}\left(1 - x_{p-1} \right).
+x_{p} = x_{p-1}\left(1 - x_{p-1} \right)w.
 \end{array}
-\end{equation}<p>In other words, this is a dynamic system recurrence relation with update function  $f\left(x\right) = wx\left(1 - x\right)$.</p>
+\end{equation}<p>In other words, this is a dynamic system recurrence relation with update function  $f\left(x\right) = x\left(1 - x\right)w$.</p>
 </div>
 </div>
 </div>
@@ -15025,10 +15025,10 @@ x_{p} = w x_{p-1}\left(1 - x_{p-1} \right).
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="ce8aace8-defc-4464-af90-1f0ea5fa1647"></div>
+<div id="1cf44c0c-ff96-4211-9bb7-b5ce6597e7a4"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ce8aace8-defc-4464-af90-1f0ea5fa1647');
+var element = $('#1cf44c0c-ff96-4211-9bb7-b5ce6597e7a4');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15829,10 +15829,10 @@ if (IPython.notebook.kernel != null) {
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="bf18bba6-728c-4fc2-bc6e-050380d313db"></div>
+<div id="afcb9935-40f3-4370-b1d7-7cad6feb109e"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#bf18bba6-728c-4fc2-bc6e-050380d313db');
+var element = $('#afcb9935-40f3-4370-b1d7-7cad6feb109e');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
