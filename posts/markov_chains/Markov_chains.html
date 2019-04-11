@@ -13992,10 +13992,10 @@ a \longrightarrow 1 \longrightarrow \begin{bmatrix} 1 \\ 0 \\ 0  \\ \vdots \\ 0 
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c513eb07-1160-4bbc-a159-532ca063c252"></div>
+<div id="2fd42650-67fa-411e-ad86-4ff2c6e5f9bf"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c513eb07-1160-4bbc-a159-532ca063c252');
+var element = $('#2fd42650-67fa-411e-ad86-4ff2c6e5f9bf');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -14791,29 +14791,33 @@ if (IPython.notebook.kernel != null) {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we suppose that we have one-hot encoded all characters of a text, then note that in order to compute a normalized histogram we can simply compute the average of $D$ consecutive vectors.  If we call $\mathbf{x}_p$ the one-hot encoded version of the character $x_p$, then we can express a normalized histogram as</p>
+<p>If we suppose that we have one-hot encoded all characters of a text, then the average of a numerical vector representing a $D$ length window of characters $\mathbf{x}_{p-1},\,\mathbf{x}_{p-2},\,...,\mathbf{x}_{p-D}$ as</p>
 \begin{equation}
-\mathbf{z}_p = \frac{\mathbf{x}_{p-1}+\mathbf{x}_{p-2} +\,...\,+\mathbf{x}_{p-D}}{D}.
-\end{equation}<p>This we can classify as a standard <a href="https://jermwatt.github.io/control-notes/posts/moving_averages/Moving_averages.html">moving average process</a>.  To select the next most probable word we then determine the index of the <em>largest</em> value from this average - which we can express as</p>
-\begin{equation}
-h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right)
-\end{equation}<p>where here the $\text{argmax}$ returns $h_p$ the index of the largest entry of the histogram $\mathbf{z}_p$.  If we want our prediction in one-hot encoded form we simply pass the index above through our encoder function as</p>
-\begin{equation}
-\mathbf{h}_p = \text{encoder}\left(h_p\right).
-\end{equation}
+\mathbf{a}_p = \frac{\mathbf{x}_{p-1}+\mathbf{x}_{p-2} +\,...\,+\mathbf{x}_{p-D}}{D}
+\end{equation}<p>uniquely defines this sequence of one-hot encoded characters.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>ll together then a Markov prediction given a window of $D$ one-hot encoded characters can be written nicely as</p>
+<p>The histogram of one-hot encoded charaters following this sequence / uniquely related to their average $\mathbf{a}_p$ is simply an average</p>
 \begin{equation}
-\,\,\,  \,\,\,  \,\,\, \,\,\,\,  \,\,\,\,\, \,\,\,\,\,  \,
-\mathbf{z}_p = \frac{\mathbf{x}_{p-1}+\mathbf{x}_{p-2} +\,...\,+\mathbf{x}_{p-D}}{D}\\
-h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right)\\
-\,  \mathbf{h}_p = \text{encoder}\left(h_p\right).
-\end{equation}<p>we can see that - in terms of basic components - a Markov chain is just a simple tweak on a standard moving average process</p>
+\mathbf{b}_p = \frac{1}{\vert\Omega\vert}\sum_{j \in \Omega}\mathbf{x}_j
+\end{equation}<p>where $\Omega = \left\{j \,\,\vert  \,\, \text{if} \,\, \mathbf{x}_j \,\,\text{follows} \,\, \mathbf{a}_p   \right\}$ is an index set of all (one-hot encoded) characters following $\mathbf{a}_p$ in a large corpus.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To select the next most probable word we then determine the index of the <em>largest</em> value from this average - which we can express as</p>
+\begin{equation}
+h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{b}_p\right)
+\end{equation}<p>where here the $\text{argmax}$ returns $h_p$ the index of the largest entry of the histogram $\mathbf{z}_p$.  If we want our prediction in one-hot encoded form we simply pass the index above through our encoder function as</p>
+\begin{equation}
+\mathbf{h}_p = \text{encoder}\left(h_p\right).
+\end{equation}
 </div>
 </div>
 </div>
@@ -14828,11 +14832,7 @@ h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right)\\
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If we were to replace the moving average process component above $\mathbf{z}_p = \frac{\mathbf{x}_{p-1},\,\mathbf{x}_{p-2},\,...,\,\mathbf{x}_{p-D}}{D}$ with a <a href="https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html">dynamic system with unlimited memory</a> like the simple exponential average $\mathbf{z}_p = \alpha\mathbf{z}_{p-1} + \left(1 - \alpha\right)\mathbf{x}_p$ (where $0 \leq \alpha \leq 1$ we an analogous kind of Markov chain with "unlimited memory"</p>
-\begin{equation}
-\,\,\,  \,\,\,  \,\,\,   \mathbf{z}_p = \alpha  \mathbf{z}_{p-1} + \left(1 - \alpha\right)\mathbf{x}_p \\
-h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right).
-\end{equation}<p>Such a Markov chain - technically speaking - makes predictions about future characters based on the entire history of input characters of a text.</p>
+<p>If we were to replace the moving average process component above $\mathbf{a}_p = \frac{\mathbf{x}_{p-1},\,\mathbf{x}_{p-2},\,...,\,\mathbf{x}_{p-D}}{D}$ with a <a href="https://jermwatt.github.io/control-notes/posts/dynamic_systems_unlimited_memory/dynamic_systems_unlimited_memory.html">dynamic system with unlimited memory</a> like the simple exponential average $\mathbf{a}_p = \alpha\mathbf{a}_{p-1} + \left(1 - \alpha\right)\mathbf{x}_p$ (where $0 \leq \alpha \leq 1$ we an analogous kind of Markov chain with "unlimited memory".  Such a Markov chain - technically speaking - makes predictions about future characters based on the entire history of input characters of a text.</p>
 </div>
 </div>
 </div>
@@ -14854,10 +14854,10 @@ h_p = \underset{j}{\text{argmax}}\,\, \left(\mathbf{z}_p\right).
 <div class="output">
 <div class="output_area">
 <div class="prompt"></div>
-<div id="c3dab41f-8446-4fc2-b2b3-842d0472c36f"></div>
+<div id="3d93d02a-79fe-4ee3-a566-5999f1a7015f"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#c3dab41f-8446-4fc2-b2b3-842d0472c36f');
+var element = $('#3d93d02a-79fe-4ee3-a566-5999f1a7015f');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
