@@ -5,9 +5,9 @@
 
 ### Topics in control and machine learning
 
-<img src="https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/images/windowing_series.png" width="300px" height="auto"> | <img src="https://jermwatt.github.io/control-notes/presentations/recurrent_networks/images/windowing_series.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> 
+ <img src="https://jermwatt.github.io/control-notes/presentations/imitation_learning/images/self_driving_crash.png" width="300px" height="auto">  | <img src="https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/images/windowing_series.png" width="300px" height="auto"> | <img src="https://jermwatt.github.io/control-notes/presentations/recurrent_networks/images/windowing_series.png" width="300px" height="auto"> 
 ---|---|---
-[Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes.slides.html) | [Recurrent networks](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html) | []()
+[Imitation Learning](https://jermwatt.github.io/control-notes/presentations/imitation_learning/imitation_learning_slides.html) | [Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes_slides.html) | [Recurrent networks](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html) |
 
 <br><br>
 
