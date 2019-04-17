@@ -5,7 +5,7 @@
 
 ### Topics in control
 
-<img src="posts/moving_averages/images/moving_avg.png" width="300px" height="auto"> | <img src="posts/one_dimensional_convolutions/images/conv.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> 
+<img src="posts/moving_averages/images/moving_avg.png" width="300px" height="auto"> | <img src="posts/one_dimensional_convolutions/images/conv.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> 
 ---|---|---
 [Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes.slides.html) | [Recurrent networks]() | [Dynamic systems with limited memory](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html)
 
