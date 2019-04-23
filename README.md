@@ -11,6 +11,12 @@
 
 <br><br>
 
+ <img src="https://jermwatt.github.io/control-notes/presentations/imitation_learning/images/self_driving_crash.png" width="300px" height="auto">  | <img src="https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/images/windowing_series.png" width="300px" height="auto"> | <img src="https://jermwatt.github.io/control-notes/presentations/recurrent_networks/images/windowing_series.png" width="300px" height="auto"> 
+---|---|---
+[PID Control](https://jermwatt.github.io/control-notes/presentations/pid_control/pid_control_part_1.slides.html) | [](https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png) | [](https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png) |
+
+<br><br>
+
 ### Dynamic Systems
 
 <img src="posts/moving_averages/images/moving_avg.png" width="300px" height="auto"> | <img src="posts/one_dimensional_convolutions/images/conv.png" width="300px" height="auto"> | <img src="posts/dynamic_systems_limited_memory/images/ds.png" width="300px" height="auto"> 
