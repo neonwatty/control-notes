@@ -7,7 +7,7 @@
 
  <img src="https://jermwatt.github.io/control-notes/presentations/imitation_learning/images/self_driving_crash.png" width="300px" height="auto">  | <img src="https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/images/windowing_series.png" width="300px" height="auto"> | <img src="https://jermwatt.github.io/control-notes/presentations/recurrent_networks/images/windowing_series.png" width="300px" height="auto"> 
 ---|---|---
-[Imitation Learning](https://jermwatt.github.io/control-notes/presentations/imitation_learning/mitation_learning.slides.html) | [Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes.slides.html) | [Recurrent networks](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html) |
+[Imitation Learning](https://jermwatt.github.io/control-notes/presentations/imitation_learning/imitation_learning.slides.html) | [Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes.slides.html) | [Recurrent networks](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html) |
 
 <br><br>
 
