@@ -7,7 +7,13 @@
 
  <img src="https://jermwatt.github.io/control-notes/presentations/imitation_learning/images/self_driving_crash.png" width="300px" height="auto">  | <img src="https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/images/windowing_series.png" width="300px" height="auto"> | <img src="https://jermwatt.github.io/control-notes/presentations/recurrent_networks/images/windowing_series.png" width="300px" height="auto"> 
 ---|---|---
-[Imitation Learning](https://jermwatt.github.io/control-notes/presentations/imitation_learning/mitation_learning.slides.html) | [Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes.slides.html) | [Recurrent networks](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html) |
+[Imitation Learning](https://jermwatt.github.io/control-notes/presentations/imitation_learning/imitation_learning.slides.html) | [Autoregressive processes](https://jermwatt.github.io/control-notes/presentations/autoregressive_processes/autoregressive_processes.slides.html) | [Recurrent networks](https://jermwatt.github.io/control-notes/presentations/recurrent_networks/recurrent_networks.slides.html) |
+
+<br><br>
+
+ <img src="https://jermwatt.github.io/control-notes/presentations/pid_control/images/error_curve.png" width="300px" height="auto">  | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> 
+---|---|---
+[PID Control](https://jermwatt.github.io/control-notes/presentations/pid_control/pid_control_part_1.slides.html) | []() | []() |
 
 <br><br>
 
