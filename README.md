@@ -11,7 +11,7 @@
 
 <br><br>
 
- <img src="https://raw.githubusercontent.com/neonwatty/control-notes/presentations/pid_control/images/error_curve.png" width="300px" height="auto">  | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> 
+ <img src="https://raw.githubusercontent.com/neonwatty/control-notes/master/presentations/pid_control/images/error_curve.png" width="300px" height="auto">  | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> | <img src="https://www.seekpng.com/png/small/56-569770_the-warm-glow-of-white-led-lighting-peers.png" width="300px" height="auto"> 
 ---|---|---
 [PID Control](https://jermwatt.github.io/control-notes/presentations/pid_control/pid_control_part_1.slides.html) | []() | []() |
 
